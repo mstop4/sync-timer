@@ -1,7 +1,11 @@
 const { expect } = require("chai");
+const rewire = require('rewire');
 
-describe("Index Testing", () => {
-  it('should have x = 5', async () => {
+const timer = rewire('../src/js/timer.js');
+const helloWorld = timer.__get__('helloWorld');
 
+describe("Timer Functionality Testing", () => {
+  it('helloWorld should return "Hello World"', () => {
+    expect(helloWorld()).to.eql("Hello World");
   });
 });

@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-describe("Index Testing", () => {
+describe("UI Testing", () => {
   let page;
 
   before (async () => {
