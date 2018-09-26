@@ -65,5 +65,4 @@ describe('Timer Functionality', () => {
     const padDisplay = timer.__get__('padDisplay');
     expect(padDisplay('12', 2).length).to.eql(2);
   });
-
 });
