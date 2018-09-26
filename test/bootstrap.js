@@ -7,7 +7,7 @@ const oldGlobalVars = {
 
 // Puppeteer Options
 const options = {
-  headless: false,
+  headless: true,
   slowMo: 100,
   timeout: 10000
 };
@@ -20,7 +20,6 @@ before (async function () {
 
 // Close browser and reset globals
 after(function() {
-  console.log(browser.document);
   browser.close();
 
   global.browser = oldGlobalVars.browser;

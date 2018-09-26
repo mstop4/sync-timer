@@ -28,8 +28,8 @@ describe("UI Testing", () => {
 
     await page.waitFor('#timer-display');
     seconds = await page.$eval('#seconds-display', sec => sec.innerText);
-    minutes = await page.$eval('#seconds-display', min => min.innerText);
-    hours = await page.$eval('#seconds-display', hr => hr.innerText);
+    minutes = await page.$eval('#minutes-display', min => min.innerText);
+    hours = await page.$eval('#hours-display', hr => hr.innerText);
 
     expect(seconds).to.eql('00');
     expect(minutes).to.eql('00');
