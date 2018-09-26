@@ -4,12 +4,14 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/bootstrap.js --recursive test",
+    "test": "mocha test/config/index.js --recursive test",
     "server": "http-server src"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.3"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "http-server": "^0.11.1",
