@@ -38,7 +38,9 @@ describe('Timer Functionality', () => {
     startTimer();
 
     const timerRunning = timer.__get__('timerRunning');
+    const timerLoop = timer.__get__('timerLoop');
     expect(timerRunning).to.eql(true);
+    expect(timerLoop).to.not.eql(null);
   });
 
   it('should stop the timer', (done) => {
@@ -50,11 +52,22 @@ describe('Timer Functionality', () => {
     (async () => {
         await sleep(1000);
         stopTimer();
+        
         const timerRunning = timer.__get__('timerRunning');
+        const timerLoop = timer.__get__('timerLoop');
         expect(timerRunning).to.eql(false);
+        expect(timerLoop).to.eql(null);
         done();
     })();
   });
+
+  it('should reset the timer', () => {
+    timer.__set__('hours', 12);
+    resetTimer();
+
+    const hours = timer.__get__('hours');
+    expect(hours).to.eql(0);
+  })
 
   it('should pad a stringfied number to two digits', () => {
     const padDisplay = timer.__get__('padDisplay');
