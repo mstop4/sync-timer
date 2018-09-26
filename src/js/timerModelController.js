@@ -1,15 +1,18 @@
 let timerRunning = false;
+let hours = 12;
+let minutes = 0;
+let seconds = 0;
 
-const helloWorld = function() {
-  return "Hello World";
+const resetTimer = function() {
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
 }
 
 const startTimer = function() {
-  //console.log("Start Timer");
   timerRunning = true;
 }
 
 const stopTimer = function() {
-  //console.log("Stop Timer");
   timerRunning = false;
 }

@@ -2,12 +2,12 @@ const puppeteer = require('puppeteer');
 const { expect } = require('chai');
 const oldGlobalVars = {
   browser: global.browser,
-  expect: global.expect
+  expect: global.expect,
 };
 
 // Puppeteer Options
 const options = {
-  headless: true,
+  headless: false,
   slowMo: 100,
   timeout: 10000
 };
@@ -20,6 +20,7 @@ before (async function () {
 
 // Close browser and reset globals
 after(function() {
+  console.log(browser.document);
   browser.close();
 
   global.browser = oldGlobalVars.browser;

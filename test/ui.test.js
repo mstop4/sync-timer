@@ -22,12 +22,18 @@ describe("UI Testing", () => {
   });
 
   it('should have a timer that reads 00:00:00', async () => {
-    let display;
+    let seconds;
+    let minutes;
+    let hours;
 
     await page.waitFor('#timer-display');
-    display = await page.$eval('#timer-display', timer => timer.innerText);
+    seconds = await page.$eval('#seconds-display', sec => sec.innerText);
+    minutes = await page.$eval('#seconds-display', min => min.innerText);
+    hours = await page.$eval('#seconds-display', hr => hr.innerText);
 
-    expect(display).to.eql('00:00:00');
+    expect(seconds).to.eql('00');
+    expect(minutes).to.eql('00');
+    expect(hours).to.eql('00');
   });
 
   it('should have a Start button', async () => {
