@@ -9,7 +9,7 @@ let resetTimer = null;
 describe('Timer Functionality', () => {
 
   before(() => {
-    let htmlContent = fs.readFileSync("./src/index.html","utf-8");
+    let htmlContent = fs.readFileSync('./src/index.html','utf-8');
     jsdom = require('jsdom-global')(htmlContent);
     timer = rewire('../src/js/timer.js');
     resetTimer = timer.__get__('resetTimer');
@@ -17,11 +17,11 @@ describe('Timer Functionality', () => {
 
   beforeEach(() => {
     resetTimer();
-  })
+  });
 
   after(() => {
     jsdom();
-  })
+  });
 
   it('should have the timer start at 00:00:00', () => {
     const seconds = timer.__get__('seconds');
@@ -50,14 +50,14 @@ describe('Timer Functionality', () => {
     startTimer();
 
     (async () => {
-        await sleep(1000);
-        stopTimer();
-        
-        const timerRunning = timer.__get__('timerRunning');
-        const timerLoop = timer.__get__('timerLoop');
-        expect(timerRunning).to.eql(false);
-        expect(timerLoop).to.eql(null);
-        done();
+      await sleep(1000);
+      stopTimer();
+      
+      const timerRunning = timer.__get__('timerRunning');
+      const timerLoop = timer.__get__('timerLoop');
+      expect(timerRunning).to.eql(false);
+      expect(timerLoop).to.eql(null);
+      done();
     })();
   });
 
@@ -67,7 +67,7 @@ describe('Timer Functionality', () => {
 
     const hours = timer.__get__('hours');
     expect(hours).to.eql(0);
-  })
+  });
 
   it('should pad a stringfied number to two digits', () => {
     const padDisplay = timer.__get__('padDisplay');

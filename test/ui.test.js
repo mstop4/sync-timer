@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-describe("UI Testing", () => {
+describe('UI Testing', () => {
   let page;
 
   before (async () => {
