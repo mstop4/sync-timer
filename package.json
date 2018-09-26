@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/bootstrap.js --recursive test",
-    "server": "http-server src"
+    "server": "http-server src",
+    "scratch": "node src/js/scratch.js"
   },
   "author": "",
   "license": "ISC",
