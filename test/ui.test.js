@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 describe("UI Testing", () => {
   let page;
 
   before (async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:8080');
+    await page.goto(`http://localhost:${process.env.PORT}`);
   });
 
   after (async () => {

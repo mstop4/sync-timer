@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/config/index.js --recursive test",
-    "server": "http-server src"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3"
   },
   "devDependencies": {
