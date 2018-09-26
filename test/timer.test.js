@@ -9,9 +9,9 @@ let resetTimer = null;
 describe('Timer Functionality', () => {
 
   before(() => {
-    let htmlContent = fs.readFileSync('./src/index.html','utf-8');
+    let htmlContent = fs.readFileSync('./views/index.html','utf-8');
     jsdom = require('jsdom-global')(htmlContent);
-    timer = rewire('../src/js/timer.js');
+    timer = rewire('../public/js/timer.js');
     resetTimer = timer.__get__('resetTimer');
   });
 

@@ -1,0 +1,12 @@
+html
+  head
+    title= 'Sync Timer'
+    link(rel='stylesheet', type='text/css', href='css/index.css')
+  
+  body
+    div#timer-display #[span#hours-display 00]:#[span#minutes-display 00]:#[span#seconds-display 00]
+    
+    button#start-button(onclick='startTimer()') Start
+    button#stop-button(onclick='stopTimer()') Stop
+  
+  script(type='text/javascript', src='js/timer.js')
