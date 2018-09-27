@@ -1,4 +1,4 @@
-const Timer = require('./models/timer');
+const Timer = require('../models/timer');
 
 const timer = new Timer();
 
