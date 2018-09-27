@@ -7,7 +7,7 @@ const oldGlobalVars = {
 
 // Puppeteer Options
 const options = {
-  headless: true,
+  headless: false,
   slowMo: 100,
   timeout: 10000,
   args: ['--no-sandbox']

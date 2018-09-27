@@ -21,20 +21,20 @@ const resetTimer = function() {
   minutes = 0;
   seconds = 0;
   updateDisplay();
-}
+};
 
 const startTimer = function() {
   timerRunning = true;
   resetTimer();
   startTime = Date.now();
   timerLoop = setInterval(updateTimer, 1);
-}
+};
 
 const stopTimer = function() {
   timerRunning = false;
   clearInterval(timerLoop);
   timerLoop = null;
-}
+};
 
 const padDisplay = function(value, places) {
   let valueStr = value.toString();
@@ -44,7 +44,7 @@ const padDisplay = function(value, places) {
   }
 
   return valueStr;
-}
+};
 
 const updateTimer = function() {
   let now = Date.now();
@@ -55,10 +55,10 @@ const updateTimer = function() {
   minutes = Math.floor(timeDiffInSeconds / 60) % 60;
   seconds = Math.floor(timeDiffInSeconds % 60);
   updateDisplay();
-}
+};
 
 const updateDisplay = function() {
   hoursDisplay.innerText = padDisplay(hours, 2);
   minutesDisplay.innerText = padDisplay(minutes, 2);
   secondsDisplay.innerText = padDisplay(seconds, 2);
-}
+};
