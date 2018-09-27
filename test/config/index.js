@@ -9,7 +9,8 @@ const oldGlobalVars = {
 const options = {
   headless: true,
   slowMo: 100,
-  timeout: 10000
+  timeout: 10000,
+  args: ['--no-sandbox']
 };
 
 // Expose vars
