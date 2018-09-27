@@ -4,7 +4,7 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/config/index.js --recursive test",
+    "test": "mocha test/config/index.js --recursive --exit test",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",

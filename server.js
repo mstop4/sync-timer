@@ -1,14 +1,17 @@
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
+const logger = require('morgan');
 const port = process.env.PORT || 3000;
 
-app.set('view engine', 'pug');
+// Setup
+app.use(logger('dev'));
 app.use(express.static('public'));
+app.use(express.static('views'));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// Routes
+const index = require('./routes/index');
+
+app.use('/', index);
 
 app.listen(port, () => console.log(`🕒  Sync Timer listening on port ${port}`));
