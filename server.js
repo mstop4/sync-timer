@@ -13,10 +13,9 @@ app.use(express.static('views'));
 
 // Routes
 const index = require('./routes/index');
+app.use('/', index);
 
 // Socket
 require('./middleware/socket')(http);
-
-app.use('/', index);
 
 http.listen(port, () => console.log(`🕒  Sync Timer listening on port ${port}`));
