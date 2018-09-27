@@ -1,11 +1,12 @@
 require('dotenv').config();
+const port = process.env.PORT || 3000;
 
 describe('UI Testing', () => {
   let page;
 
   before (async () => {
     page = await browser.newPage();
-    await page.goto(`http://localhost:${process.env.PORT}`);
+    await page.goto(`http://localhost:${port}`);
   });
 
   after (async () => {
