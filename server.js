@@ -19,14 +19,15 @@ app.use('/', index);
 
 // Socket
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  console.log(`User ${socket.id} connected`);
 
-  socket.on('disconnect', () => {
-    console.log('a user disconnected');
+
+  socket.on('disconnect', (socket) => {
+    console.log(`User ${socket.id} disconnected`);
   });
 
   socket.on('handshake', (msg) => {
-    console.log('A User says: ' + msg);
+    console.log(`User ${socket.id} sez: ${msg}`);
   });
 });
 
