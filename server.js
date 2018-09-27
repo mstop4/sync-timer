@@ -18,11 +18,15 @@ const index = require('./routes/index');
 app.use('/', index);
 
 // Socket
-io.on('connection', function(socket){
+io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on('disconnect', function(){
+  socket.on('disconnect', () => {
     console.log('a user disconnected');
+  });
+
+  socket.on('handshake', (msg) => {
+    console.log('A User says: ' + msg);
   });
 });
 
