@@ -1,17 +1,17 @@
 const fs = require('fs');   
 const rewire = require('rewire');
-const { sleep } = require('./helpers/index.js');
+const { sleep } = require('../helpers/index.js');
 
 let jsdom = null;
 let timer = null;
 let resetTimer = null;
 
-describe('Timer Functionality', () => {
+describe.skip('Timer Functionality', () => {
 
   before(() => {
     let htmlContent = fs.readFileSync('./views/index.html','utf-8');
     jsdom = require('jsdom-global')(htmlContent);
-    timer = rewire('../public/js/timer.js');
+    timer = rewire('../../public/js/timer.js');
     resetTimer = timer.__get__('resetTimer');
   });
 

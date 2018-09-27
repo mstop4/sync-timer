@@ -1,6 +1,6 @@
 require('dotenv').config();
 const port = process.env.PORT || 3000;
-const { sleep } = require('./helpers/index.js');
+const { sleep } = require('../helpers/index.js');
 
 describe('UI Testing', () => {
   let page;
