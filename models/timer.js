@@ -7,7 +7,7 @@ class Timer {
     this.timerLoop = null;
     this.startTime = null;
 
-    this.updateDisplay = this.updateDisplay.bind(this);
+    this.broadcastTimer = this.broadcastTimer.bind(this);
     this.updateTimer = this.updateTimer.bind(this);
   }
 
@@ -24,7 +24,7 @@ class Timer {
     this.timerLoop = null;
   }
 
-  updateDisplay() {
+  broadcastTimer() {
     
   }
 
@@ -36,14 +36,14 @@ class Timer {
     this.hours = Math.floor(timeDiffInSeconds / 3600);
     this.minutes = Math.floor(timeDiffInSeconds / 60) % 60;
     this.seconds = Math.floor(timeDiffInSeconds % 60);
-    this.updateDisplay();
+    this.broadcastTimer();
   }
 
   resetTimer() {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
-    this.updateDisplay();
+    this.broadcastTimer();
   }
 
   padDisplay(value, places) {
