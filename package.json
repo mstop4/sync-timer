@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "concurrently -k -s first \"yarn start\" \"yarn run mocha\"",
-    "mocha": "wait-on http://localhost:3000 && mocha test/config/index.js --recursive --exit test",
+    "mocha": "wait-on http://localhost:3000 && mocha",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },

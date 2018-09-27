@@ -1,5 +1,6 @@
 require('dotenv').config();
 const port = process.env.PORT || 3000;
+const { sleep } = require('./helpers/index.js');
 
 describe('UI Testing', () => {
   let page;
@@ -23,14 +24,10 @@ describe('UI Testing', () => {
   });
 
   it('should have a timer that reads 00:00:00', async () => {
-    let seconds;
-    let minutes;
-    let hours;
-
     await page.waitFor('#timer-display');
-    seconds = await page.$eval('#seconds-display', sec => sec.innerText);
-    minutes = await page.$eval('#minutes-display', min => min.innerText);
-    hours = await page.$eval('#hours-display', hr => hr.innerText);
+    let seconds = await page.$eval('#seconds-display', sec => sec.innerText);
+    let minutes = await page.$eval('#minutes-display', min => min.innerText);
+    let hours = await page.$eval('#hours-display', hr => hr.innerText);
 
     expect(seconds).to.eql('00');
     expect(minutes).to.eql('00');
@@ -38,20 +35,27 @@ describe('UI Testing', () => {
   });
 
   it('should have a Start button', async () => {
-    let startButton;
-
     await page.waitFor('#start-button');
-    startButton = await page.$eval('#start-button', button => button.innerText);
+    let startButton = await page.$eval('#start-button', button => button.innerText);
 
     expect(startButton).to.eql('Start');
   });
 
   it('should have a Stop button', async () => {
-    let stopButton;
-
     await page.waitFor('#stop-button');
-    stopButton = await page.$eval('#start-button', button => button.innerText);
+    let stopButton = await page.$eval('#start-button', button => button.innerText);
 
     expect(stopButton).to.eql('Start');
-  });  
+  });
+
+  it('should start the timer', async () => {
+    await Promise.all([
+      page.waitFor('#start-button'),
+      page.click('#start-button'),
+    ]);
+
+    await sleep(2000);
+    let secondsText = await page.$eval('#seconds-display', sec => sec.innerText);
+    expect(secondsText).to.not.eql('00');
+  });
 });
