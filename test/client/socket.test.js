@@ -1,7 +1,7 @@
 require('dotenv').config();
 const io = require('socket.io-client');
 
-const socketUrl = `http://localhost: + ${(process.env.PORT_TEST || 3001)}`;
+const socketUrl = `http://localhost:${(process.env.PORT_TEST || 3001)}`;
 const options = {
   transports: ['websocket'],
   forceNew: true
