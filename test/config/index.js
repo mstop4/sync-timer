@@ -21,7 +21,7 @@ const options = {
 before (async function () {
   global.expect = expect;
   global.browser = await puppeteer.launch(options);
-  global.testServer = app(port);
+  global.testServer = await app(port);
 });
 
 // Close browser and reset globals

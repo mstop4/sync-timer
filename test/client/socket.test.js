@@ -12,7 +12,7 @@ describe('Sockets (Client)', () => {
 
   it ('should connect', (done) => {
     client[0] = io(socketUrl, options);
-
+    console.log('Attempting to connect to server at 3001.');
     client[0].on('connect', () => {
       client[0].disconnect();
       done();
