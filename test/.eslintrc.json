@@ -1,0 +1,7 @@
+{
+  "globals": {
+    "expect": true,
+    "browser": true,
+    "testServer": true
+  }
+}

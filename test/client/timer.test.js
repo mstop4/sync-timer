@@ -1,6 +1,6 @@
 const fs = require('fs');   
 const rewire = require('rewire');
-const { sleep } = require('../helpers/index.js');
+const { sleep } = require('../../helpers/index.js');
 
 let jsdom = null;
 let timer = null;

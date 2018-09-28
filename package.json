@@ -4,10 +4,9 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
-    "test": "concurrently -k -s first \"npm start\" \"npm run mocha\"",
-    "mocha": "wait-on http://localhost:3000 && mocha",
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "test": "NODE_ENV=test mocha ./test/config/index.js --recrusive",
+    "dev": "NODE_ENV=dev nodemon app.js",
+    "start": "NODE_ENV=production node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,14 +18,12 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "concurrently": "^4.0.1",
     "jsdom": "^12.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.4",
     "puppeteer": "^1.8.0",
     "rewire": "^4.0.1",
-    "socket.io-client": "^2.1.1",
-    "wait-on": "^3.0.1"
+    "socket.io-client": "^2.1.1"
   }
 }
