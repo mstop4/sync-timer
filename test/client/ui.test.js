@@ -5,12 +5,12 @@ const { sleep } = require('../helpers/index.js');
 describe('UI Testing', () => {
   let page;
 
-  beforeEach (async () => {
+  before (async () => {
     page = await browser.newPage();
     await page.goto(`http://localhost:${port}`);
   });
 
-  afterEach (async () => {
+  after (async () => {
     await page.close();
   });
 
@@ -51,11 +51,15 @@ describe('UI Testing', () => {
   it('should start the timer', async () => {
     await Promise.all([
       page.waitFor('#start-button'),
+      page.waitFor('#stop-button'),
       page.click('#start-button'),
       sleep(2000)
     ]);
 
     let secondsText = await page.$eval('#seconds-display', sec => sec.innerText);
+
+    await page.click('#stop-button');
+
     expect(secondsText).to.not.eql('00');
   });
 

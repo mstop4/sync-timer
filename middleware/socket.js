@@ -4,8 +4,7 @@ module.exports = (http) => {
   io.on('connection', (socket) => {
     console.log(`User ${socket.id} connected`);
   
-  
-    socket.on('disconnect', (socket) => {
+    socket.on('disconnect', () => {
       console.log(`User ${socket.id} disconnected`);
     });
   
