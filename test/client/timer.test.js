@@ -39,8 +39,8 @@ describe.skip('Timer Functionality', () => {
 
     const timerRunning = timer.__get__('timerRunning');
     const timerLoop = timer.__get__('timerLoop');
-    expect(timerRunning).to.eql(true);
-    expect(timerLoop).to.not.eql(null);
+    expect(timerRunning).to.be.true;
+    expect(timerLoop).to.not.be.null;
   });
 
   it('should stop the timer', (done) => {
@@ -55,8 +55,8 @@ describe.skip('Timer Functionality', () => {
       
       const timerRunning = timer.__get__('timerRunning');
       const timerLoop = timer.__get__('timerLoop');
-      expect(timerRunning).to.eql(false);
-      expect(timerLoop).to.eql(null);
+      expect(timerRunning).to.be.false;
+      expect(timerLoop).to.be.null;
       done();
     })();
   });

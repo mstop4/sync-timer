@@ -1,13 +1,13 @@
 class Timer {
-  constructor() {
+  constructor(updateCallback) {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
     this.timerRunning = false;
     this.timerLoop = null;
     this.startTime = null;
+    this.updateCallback = updateCallback;
 
-    this.broadcastTimer = this.broadcastTimer.bind(this);
     this.updateTimer = this.updateTimer.bind(this);
   }
 
@@ -15,17 +15,13 @@ class Timer {
     this.timerRunning = true;
     this.resetTimer();
     this.startTime = Date.now();
-    this.timerLoop = setInterval(this.updateTimer, 1);
+    this.timerLoop = setInterval(this.updateTimer, 100);
   }
   
   stopTimer() {
     this.timerRunning = false;
     clearInterval(this.timerLoop);
     this.timerLoop = null;
-  }
-
-  broadcastTimer() {
-    
   }
 
   updateTimer() {
@@ -36,24 +32,20 @@ class Timer {
     this.hours = Math.floor(timeDiffInSeconds / 3600);
     this.minutes = Math.floor(timeDiffInSeconds / 60) % 60;
     this.seconds = Math.floor(timeDiffInSeconds % 60);
-    this.broadcastTimer();
+
+    if (this.updateCallback) {
+      this.updateCallback(this.hours, this.minutes, this.seconds);
+    }
   }
 
   resetTimer() {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
-    this.broadcastTimer();
-  }
 
-  padDisplay(value, places) {
-    let valueStr = value.toString();
-  
-    if (valueStr.length < places) {
-      valueStr = '0' + valueStr;
+    if (this.updateCallback) {
+      this.updateCallback(this.hours, this.minutes, this.seconds);
     }
-  
-    return valueStr;
   }
 }
 

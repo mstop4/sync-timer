@@ -8,5 +8,15 @@ module.exports = {
     if (process.env.NODE_ENV !== 'test') {
       console.log(str);
     }
+  },
+
+  padDisplay: (value, places) => {
+    let valueStr = value.toString();
+  
+    if (valueStr.length < places) {
+      valueStr = '0' + valueStr;
+    }
+  
+    return valueStr;
   }
 };
