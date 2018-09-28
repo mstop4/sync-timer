@@ -1,21 +1,20 @@
-require('dotenv').config();
-const io = require('socket.io-client');
+const app = () => {};
+const http = require('http').Server(app);
+const port = 3001;
 
-const socketUrl = 'http://localhost:' + process.env.PORT || '3000';
-const options = {
-  transports: ['websocket'],
-  'force new connection': true
-};
+// Socket
+const io = require('../../middleware/socket')(http);
+http.listen(port, () => console.log(`🕒  Test Server listening on port ${port}`));
 
-describe('Sockets', () => {
-  let client = [];
+describe('Socket (Server)', () => {
 
-  it ('should connect', (done) => {
-    client[0] = io(socketUrl, options);
-
-    client[0].on('connect', () => {
-      client[0].disconnect();
-      done();
+  after(() => {
+    http.close(() => {
+      console.log('Test Server shut down');
     });
+  });
+
+  it('should work', () => {
+    expect(io).to.not.eql(null);
   });
 });
