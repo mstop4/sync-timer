@@ -1,4 +1,4 @@
 /node_modules
 .DS_Store
 .env
-yarn-error.log*
+npm-error.log*

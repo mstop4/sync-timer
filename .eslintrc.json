@@ -7,10 +7,6 @@
         "mocha": true
     },
     "extends": "eslint:recommended",
-    "globals": {
-        "expect": true,
-        "browser": true
-    },
     "parserOptions": {
         "ecmaVersion": 2017,
         "sourceType": "module"
@@ -25,7 +21,7 @@
             "unix"
         ],
         "no-console": [
-            "warn"
+            "off"
         ],
         "quotes": [
             "error",
