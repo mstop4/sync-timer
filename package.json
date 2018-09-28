@@ -4,7 +4,7 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha ./test/config/index.js --recrusive",
+    "test": "NODE_ENV=test mocha",
     "dev": "NODE_ENV=dev nodemon app.js",
     "start": "NODE_ENV=production node app.js"
   },
