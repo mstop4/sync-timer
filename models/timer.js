@@ -11,7 +11,6 @@ class Timer {
     this.updateCallback = updateCallback;
 
     this.updateTimer = this.updateTimer.bind(this);
-    this.getTime = this.getTime.bind(this);
   }
 
   startTimer() {
@@ -37,7 +36,7 @@ class Timer {
     this.seconds = Math.floor(timeDiffInSeconds % 60);
 
     if (this.updateCallback) {
-      this.updateCallback(this.hours, this.minutes, this.seconds);
+      this.updateCallback(this);
     }
   }
 
@@ -47,11 +46,11 @@ class Timer {
     this.seconds = 0;
 
     if (this.updateCallback) {
-      this.updateCallback(this.hours, this.minutes, this.seconds);
+      this.updateCallback(this);
     }
   }
 
-  getTime() {
+  get time() {
     return {
       hours: padDisplay(this.hours, 2),
       minutes: padDisplay(this.minutes, 2),

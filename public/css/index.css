@@ -1,3 +1,7 @@
 #timer-display {
-  font-size: 6em;
+  font-size: 8em;
+}
+
+.control-button {
+  font-size: 4em;
 }
