@@ -1,24 +1,32 @@
+'use strict';
+
 var socket = io();
-var socketReady = false;
+var myTimerId = null;
 
 socket.on('connect', function() {
-  socket.emit('handshake', 'Hi!');
-  socketReady = true;
-
   // Events
+  socket.on('assign id', function(id) {
+    myTimerId = id;
+    console.log(`My Timer ID is: ${myTimerId}`);
+  });
+
   socket.on('update timer', function(time) {
     updateDisplay(time.hours, time.minutes, time.seconds);
   }); 
 });
 
 var sendStartSignal = function() {
-  if (socketReady) {
-    socket.emit('start timer');
+  if (socket.connected && myTimerId !== null) {
+    socket.emit('start timer', myTimerId);
   }
 };
 
 var sendStopSignal = function() {
-  if (socketReady) {
-    socket.emit('stop timer');
+  if (socket.connected && myTimerId !== null) {
+    socket.emit('stop timer', myTimerId);
   }
 };
+
+var initTime = function() {
+  socket.emit('handshake', 'gimme time plz');
+}

@@ -1,3 +1,5 @@
+'use strict';
+
 const { logExceptInTest, padDisplay } = require('../../helpers');
 
 describe('Helper Library', () => {

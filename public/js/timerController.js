@@ -1,3 +1,5 @@
+'use strict';
+
 var hoursDisplay;
 var minutesDisplay;
 var secondsDisplay;
@@ -16,8 +18,9 @@ var updateDisplay = function(hours, minutes, seconds) {
   secondsDisplay.innerText = seconds;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+var getDisplayElements = function() {
   hoursDisplay = document.getElementById('hours-display');
   minutesDisplay = document.getElementById('minutes-display');
   secondsDisplay = document.getElementById('seconds-display');
-});
+  initTime();
+};
