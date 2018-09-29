@@ -8,4 +8,8 @@ router.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
+// router.get('/stats', (req, res) => {
+//   res.send()
+// });
+
 module.exports = router;
