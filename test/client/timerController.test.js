@@ -1,58 +1,31 @@
-const rewire = require('rewire');
-const { sleep } = require('../../helpers/index.js');
+
+const fs = require('fs');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
+const timerController = fs.readFileSync('./public/js/timerController.js', { encoding: 'utf-8' });
 
-JSDOM.fromFile('./views/index.html')
+JSDOM.fromFile('./views/index.html', { runScripts: 'dangerously' })
   .then((dom) => {
-    document = dom.window.document;
-    window = dom.window;
-    let timer = null;
-    let resetTimer = null;
+    const document = dom.window.document;
+    const window = dom.window;
+    const scriptEl = document.createElement('script');
+    scriptEl.textContent = timerController;
+    document.body.appendChild(scriptEl);
     
-    describe.skip('Timer Controller (Client)', () => {
-    
-      before(() => {
-        timer = rewire('../../public/js/timerController.js');
-      });
-    
-      beforeEach(() => {
-      });
-    
+    describe('Timer Controller (Client)', () => {
       after(() => {
         window.close();
       });
     
-      xit('should start the timer', () => {
-        const startTimer = timer.__get__('startTimer');
-        startTimer();
-        const timerRunning = timer.__get__('timerRunning');
-        const timerLoop = timer.__get__('timerLoop');
-        expect(timerRunning).to.be.true;
-        expect(timerLoop).to.not.be.null;
-      });
-    
-      xit('should stop the timer', (done) => {
-        const startTimer = timer.__get__('startTimer');
-        const stopTimer = timer.__get__('stopTimer');
-        startTimer();
-        (async () => {
-          await sleep(1000);
-          stopTimer();
-    
-          const timerRunning = timer.__get__('timerRunning');
-          const timerLoop = timer.__get__('timerLoop');
-          expect(timerRunning).to.be.false;
-          expect(timerLoop).to.be.null;
-          done();
-        })();
-      });
-    
-      xit('should reset the timer', () => {
-        timer.__set__('hours', 12);
-        resetTimer();
-        const hours = timer.__get__('hours');
-        expect(hours).to.eql(0);
+      it('should update the display', () => {
+        window.updateDisplay('12', '30', '45');
+        const hours = document.getElementById('hours-display').innerText;
+        const minutes = document.getElementById('minutes-display').innerText;
+        const seconds = document.getElementById('seconds-display').innerText;
+
+        expect(hours).to.eql('12');
+        expect(minutes).to.eql('30');
+        expect(seconds).to.eql('45');
       });
     }); 
   });

@@ -7,8 +7,6 @@ const port = process.env.PORT_TEST || 3001;
 const oldGlobalVars = {
   browser: global.browser,
   expect: global.expect,
-  document: global.document,
-  window: global.window
 };
 
 // Puppeteer Options
@@ -35,6 +33,4 @@ after(function() {
 
   global.browser = oldGlobalVars.browser;
   global.expect = oldGlobalVars.expect;
-  global.document = oldGlobalVars.document;
-  global.window = oldGlobalVars.window;
 });

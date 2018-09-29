@@ -2,8 +2,6 @@
   "globals": {
     "expect": true,
     "browser": true,
-    "testServer": true,
-    "document": true,
-    "window": true
+    "testServer": true
   }
 }
