@@ -28,5 +28,5 @@ var sendStopSignal = function() {
 };
 
 var initTime = function() {
-  socket.emit('handshake', 'gimme time plz');
+  socket.emit('get time', myTimerId);
 }

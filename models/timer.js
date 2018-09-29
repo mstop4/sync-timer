@@ -24,8 +24,9 @@ class Timer {
   
   stopTimer() {
     this.timerRunning = false;
-    clearInterval(this.timerLoop);
-    this.timerLoop = null;
+    if (this.timerLoop._repeat) {
+      clearInterval(this.timerLoop);
+    }
   }
 
   updateTimer() {
