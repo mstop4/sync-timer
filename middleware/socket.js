@@ -10,10 +10,14 @@ module.exports = (http) => {
     io.emit('update timer', time);
   };
 
+  const createTimer = () => {
+    return new Timer(broadcastUpdate);
+  };
+
   let clientList = {};
   let timerList = [];
 
-  timerList[0] = new Timer(broadcastUpdate);
+  timerList[0] = createTimer();
 
   // Socket Logic
   io.on('connection', (socket) => {
@@ -33,12 +37,12 @@ module.exports = (http) => {
     });
 
     socket.on('start timer', (timerId) => {
-      logExceptInTest(`User ${socket.id} starts timer ${timerId}`);
+      logExceptInTest(`User ${socket.id} started timer ${timerId}`);
       timerList[timerId].startTimer();
     });
 
     socket.on('stop timer', (timerId) => {
-      logExceptInTest(`User ${socket.id} stops timer ${timerId}`);
+      logExceptInTest(`User ${socket.id} stopped timer ${timerId}`);
       timerList[timerId].stopTimer();
     });
   });
