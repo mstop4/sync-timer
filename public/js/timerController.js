@@ -22,4 +22,5 @@ var getDisplayElements = function() {
   hoursDisplay = document.getElementById('hours-display');
   minutesDisplay = document.getElementById('minutes-display');
   secondsDisplay = document.getElementById('seconds-display');
+  initTime();
 };

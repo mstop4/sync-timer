@@ -4,8 +4,6 @@ var socket = io();
 var myTimerId = null;
 
 socket.on('connect', function() {
-  socket.emit('handshake', 'Hi!');
-
   // Events
   socket.on('assign id', function(id) {
     myTimerId = id;
@@ -28,3 +26,7 @@ var sendStopSignal = function() {
     socket.emit('stop timer', myTimerId);
   }
 };
+
+var initTime = function() {
+  socket.emit('handshake', 'gimme time plz');
+}

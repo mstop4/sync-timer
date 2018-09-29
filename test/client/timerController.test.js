@@ -12,6 +12,9 @@ JSDOM.fromFile('./views/index.html', { runScripts: 'dangerously' })
     const scriptEl = document.createElement('script');
     scriptEl.textContent = timerController;
     document.body.appendChild(scriptEl);
+
+    // Stub
+    window.initTime = window.updateDisplay.bind(null, '00', '00', '00');
     
     describe('Timer Controller (Client)', () => {
       after(() => {

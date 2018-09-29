@@ -12,21 +12,29 @@ module.exports = (http) => {
     io.emit('update timer', time);
   };
 
-  const createTimer = () => {
-    return new Timer(broadcastUpdate);
+  const createTimer = (timerList) => {
+    const id = "12345";
+    const timer = new Timer(broadcastUpdate);
+    timerList[id] = timer;
+    return id;
   };
 
-  let clientList = {};
-  let timerList = [];
+  const deleteTimer = (timerList, id) => {
+    if (timerList.hasOwnProperty(id)) {
+      delete timerList[id];
+    }
+  }
 
-  timerList[0] = createTimer();
+  let clientList = {};
+  let timerList = {};
+
+  let tid = createTimer(timerList);
 
   // Socket Logic
   io.on('connection', (socket) => {
-    logExceptInTest(`User ${socket.id} connected to timer 0`);
+    logExceptInTest(`User ${socket.id} connected to timer ${tid}`);
     clientList = io.sockets.clients().sockets;
-    clientList[socket.id].emit('assign id', 0);
-    clientList[socket.id].emit('update timer', timerList[0].time);
+    clientList[socket.id].emit('assign id', tid);
 
     // Events
     socket.on('disconnect', () => {
@@ -36,6 +44,7 @@ module.exports = (http) => {
   
     socket.on('handshake', (msg) => {
       logExceptInTest(`User ${socket.id} sez: ${msg}`);
+      socket.emit('update timer', timerList[tid].time);
     });
 
     socket.on('start timer', (timerId) => {
