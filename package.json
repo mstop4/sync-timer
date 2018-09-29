@@ -1,12 +1,15 @@
 {
   "name": "sync-timer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha",
     "dev": "NODE_ENV=dev nodemon app.js",
     "start": "NODE_ENV=production node app.js"
+  },
+  "engines": {
+    "node": "8.12.0"
   },
   "author": "",
   "license": "ISC",
