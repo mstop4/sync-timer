@@ -7,6 +7,18 @@ module.exports = {
   logExceptInTest: (str) => {
     if (process.env.NODE_ENV !== 'test') {
       console.log(str);
+      return true;
     }
+    return false;
+  },
+
+  padDisplay: (value, places) => {
+    let valueStr = value.toString();
+  
+    if (valueStr.length < places) {
+      valueStr = '0' + valueStr;
+    }
+  
+    return valueStr;
   }
 };
