@@ -1,19 +1,7 @@
-const { sleep, logExceptInTest, padDisplay } = require('../../helpers');
+const { logExceptInTest, padDisplay } = require('../../helpers');
 const sinon = require('sinon');
 
 describe('Helper Library', () => {
-
-  /*before(() => {
-    this.sinon = sinon.createSandbox();
-  });
-
-  beforeEach(() => {
-    this.sinon.restore();
-  });*/
-
-  xit('should sleep for 1 second', async () => {
-    await sleep(1000);
-  });
 
   it('should not log anything in test environment', () => {
     this.sinon = sinon.createSandbox();
