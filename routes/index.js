@@ -3,13 +3,23 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.sendFile('index.html');
-});
+const routes = (rm) => {
+  
+  /* GET home page. */
+  router.get('/', (req, res) => {
+    res.sendFile('index.html');
+  });
 
-// router.get('/stats', (req, res) => {
-//   res.send()
-// });
+  router.get('/stats', (req, res) => {
+    const stats = {
+      clients: rm.clientList,
+      timers: rm.timerList,
+      timerClients: rm.timerClientsList
+    }
+    res.send(stats);
+  });
 
-module.exports = router;
+  return router;
+}
+
+module.exports = routes;

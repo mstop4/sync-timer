@@ -4,11 +4,11 @@ const { logExceptInTest } = require('../helpers/index');
 const Timer = require('../models/timer');
 
 class RoomManager {
-  constructor(updateCB) {
+  constructor() {
     this.clientList = [];
     this.timerList = {};
     this.timerClientsList = {};
-    this.updateCallback = updateCB;
+    this.updateCallback = null;
 
     this.removeClientFromTimer = this.removeClientFromTimer.bind(this);
     this.removeClientFromAnyTimer = this.removeClientFromAnyTimer.bind(this);

@@ -1,9 +1,8 @@
 'use strict';
 
 const { logExceptInTest } = require('../helpers/index');
-const RoomManager = require('./roomManager.js')
 
-module.exports = (http) => {
+module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
 
   const broadcastUpdate = ((timer) => {
@@ -12,7 +11,8 @@ module.exports = (http) => {
     io.emit('update timer', time);
   }).bind(this);
 
-  const rm = new RoomManager(broadcastUpdate);
+  const rm = roomManager;
+  rm.updateCallback = broadcastUpdate;
 
   // Socket Logic
   io.on('connection', (socket) => {
