@@ -1,8 +1,8 @@
-const server = (port) => {
-  const express = require('express');
-  const app = express();
-  const http = require('http').Server(app);
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
 
+const server = (port) => {
   // Setup
   if (process.env.NODE_ENV !== 'test') {
     const logger = require('morgan');

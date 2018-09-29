@@ -2,7 +2,7 @@ const Timer = require('../../models/timer');
 const { sleep } = require('../../helpers/index');
 let timer = null;
 
-describe('Timer Functionality (Server)', () => {
+describe('Timer (Server)', () => {
 
   beforeEach(() => {
     timer = new Timer();
@@ -24,8 +24,8 @@ describe('Timer Functionality (Server)', () => {
   it('should start the timer', () => {
     timer.startTimer();
 
-    expect(timer.timerRunning).to.eql(true);
-    expect(timer.timerLoop).to.not.eql(null);
+    expect(timer.timerRunning).to.be.true;
+    expect(timer.timerLoop).to.not.be.null;
   });
 
   it('should stop the timer', (done) => {
@@ -35,19 +35,9 @@ describe('Timer Functionality (Server)', () => {
       await sleep(1000);
       timer.stopTimer();
       
-      expect(timer.timerRunning).to.eql(false);
-      expect(timer.timerLoop).to.eql(null);
+      expect(timer.timerRunning).to.be.false;
+      expect(timer.timerLoop).to.be.null;
       done();
     })();
-  });
-
-  it('should pad a stringfied number to two digits', () => {
-    const result = timer.padDisplay('2', 2);
-    expect(result).to.eql('02');
-  });
-
-  it('should not pad stringfied number with two digits already', () => {
-    const result = timer.padDisplay('12', 2);
-    expect(result.length).to.eql(2);
   });
 });
