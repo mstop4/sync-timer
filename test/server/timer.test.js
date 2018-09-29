@@ -2,7 +2,7 @@ const Timer = require('../../models/timer');
 const { sleep } = require('../../helpers/index');
 let timer = null;
 
-describe('Timer Functionality (Server)', () => {
+describe('Timer (Server)', () => {
 
   beforeEach(() => {
     timer = new Timer();

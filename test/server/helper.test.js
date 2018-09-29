@@ -1,15 +1,20 @@
 const { logExceptInTest, padDisplay } = require('../../helpers');
-const sinon = require('sinon');
 
 describe('Helper Library', () => {
 
   it('should not log anything in test environment', () => {
-    this.sinon = sinon.createSandbox();
-    this.sinon.stub(console, 'log');
-    logExceptInTest('Hello World');
+    const result = logExceptInTest('Hello World');
 
-    expect(console.log.notCalled).to.be.true;
+    expect(result).to.be.false;
   });
+
+  it('should log something in any other environment except test', () => {
+    process.env.NODE_ENV = 'test2';
+    const result = logExceptInTest('Hello World');
+
+    expect(result).to.be.true;
+  });
+
 
   it('should pad a stringfied number to two digits', () => {
     const result = padDisplay('2', 2);

@@ -7,7 +7,9 @@ module.exports = {
   logExceptInTest: (str) => {
     if (process.env.NODE_ENV !== 'test') {
       console.log(str);
+      return true;
     }
+    return false;
   },
 
   padDisplay: (value, places) => {
