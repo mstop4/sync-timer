@@ -1,3 +1,5 @@
+'use strict';
+
 require('dotenv').config();
 const port = process.env.PORT_TEST || 3001;
 const { sleep } = require('../../helpers/index.js');

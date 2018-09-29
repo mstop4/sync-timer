@@ -1,3 +1,5 @@
+'use strict';
+
 const { logExceptInTest } = require('../helpers/index');
 const Timer = require('../models/timer');
 

@@ -1,3 +1,5 @@
+'use strict';
+
 var hoursDisplay;
 var minutesDisplay;
 var secondsDisplay;
