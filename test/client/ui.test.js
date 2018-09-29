@@ -48,7 +48,7 @@ describe('UI Testing', () => {
     expect(stopButton).to.eql('Start');
   });
 
-  xit('should start the timer', async () => {
+  it('should start the timer', async () => {
     await Promise.all([
       page.waitFor('#start-button'),
       page.waitFor('#stop-button'),
@@ -63,7 +63,7 @@ describe('UI Testing', () => {
     expect(secondsText).to.not.eql('00');
   });
 
-  xit('should stop the timer', async () => {
+  it('should stop the timer', async () => {
     await Promise.all([
       page.waitFor('#start-button'),
       page.waitFor('#stop-button'),

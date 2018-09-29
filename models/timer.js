@@ -1,3 +1,5 @@
+const { padDisplay } = require('../helpers/index');
+
 class Timer {
   constructor(updateCallback) {
     this.hours = 0;
@@ -9,6 +11,7 @@ class Timer {
     this.updateCallback = updateCallback;
 
     this.updateTimer = this.updateTimer.bind(this);
+    this.getTime = this.getTime.bind(this);
   }
 
   startTimer() {
@@ -46,6 +49,14 @@ class Timer {
     if (this.updateCallback) {
       this.updateCallback(this.hours, this.minutes, this.seconds);
     }
+  }
+
+  getTime() {
+    return {
+      hours: padDisplay(this.hours, 2),
+      minutes: padDisplay(this.minutes, 2),
+      seconds: padDisplay(this.seconds, 2)
+    };
   }
 }
 

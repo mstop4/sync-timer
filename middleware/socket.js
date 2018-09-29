@@ -18,12 +18,12 @@ module.exports = (http) => {
   let timerList = [];
 
   timerList[0] = new Timer(broadcastUpdate);
-  timerList[0].startTimer();
 
   // Socket Logic
   io.on('connection', (socket) => {
     logExceptInTest(`User ${socket.id} connected`);
     clientList[socket.id] = socket;
+    //clientList[socket.id].send(timerList[0].getTime());
 
     // Events
     socket.on('disconnect', () => {
@@ -33,6 +33,16 @@ module.exports = (http) => {
   
     socket.on('handshake', (msg) => {
       logExceptInTest(`User ${socket.id} sez: ${msg}`);
+    });
+
+    socket.on('start timer', () => {
+      logExceptInTest(`User ${socket.id} starts timer 0`);
+      timerList[0].startTimer();
+    });
+
+    socket.on('stop timer', () => {
+      logExceptInTest(`User ${socket.id} stops timer 0`);
+      timerList[0].stopTimer();
     });
   });
 };
