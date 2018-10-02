@@ -54,7 +54,7 @@ class RoomManager {
     this.removeClientFromAnyTimer(clientId);
 
     if (this.clientList.includes(clientId)) {
-      delete this.clientList[clientId];
+      this.clientList.splice(this.clientList.indexOf(clientId), 1);
       logExceptInTest(`User ${clientId} removed`);
       return true;
     } else {

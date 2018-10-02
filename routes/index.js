@@ -11,9 +11,16 @@ const routes = (rm) => {
   });
 
   router.get('/stats', (req, res) => {
+    // Sanitize timer objects to remove circular JSON reference
+    const sanitizedTimers = Object.assign({}, rm.timerList);
+
+    for (let timerId in sanitizedTimers) {
+       delete sanitizedTimers[timerId].timerLoop;
+    }
+
     const stats = {
       clients: rm.clientList,
-      timers: rm.timerList,
+      timers: sanitizedTimers,
       timerClients: rm.timerClientsList
     }
     res.send(stats);
