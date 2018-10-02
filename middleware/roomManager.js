@@ -7,7 +7,6 @@ class RoomManager {
   constructor() {
     this.clientList = [];
     this.timerList = {};
-    this.timerClientsList = {};
     this.updateCallback = null;
 
     this.removeClientFromTimer = this.removeClientFromTimer.bind(this);
@@ -23,12 +22,6 @@ class RoomManager {
   };
 
   deleteTimer(timerId) {
-    if (Object.keys(this.timerClientsList).includes(timerId)) {
-      delete this.timerClientsList[timerId];
-    } else {
-      logExceptInTest(`deleteTimer: Timer ${timerId} not found in this.timerClientsList`);
-    }
-
     if (this.timerList.hasOwnProperty(timerId)) {
       delete this.timerList[timerId];
       logExceptInTest(`Timer ${timerId} deleted`);
@@ -75,14 +68,14 @@ class RoomManager {
     }
 
     else {
-      if (Object.keys(this.timerClientsList).includes(timerId)) {
-        this.timerClientsList[timerId].push(clientId);
+      const result = this.timerList[timerId].addClient(clientId);
+      if (result) {
+        logExceptInTest(`User ${clientId} added to Timer ${timerId}`);
+        return true;
       } else {
-        this.timerClientsList[timerId] = [clientId];
+        logExceptInTest(`addClientToTimer: User ${clientId} already added to Timer ${timerId}`);
+        return true;        
       }
-
-      logExceptInTest(`User ${clientId} added to Timer ${timerId}`);
-      return true;
     }
   };
 
@@ -98,12 +91,13 @@ class RoomManager {
     }
 
     else {
-      if (this.timerClientsList[timerId].includes(clientId)) {
-        this.timerClientsList[timerId].splice(this.timerClientsList[timerId].indexOf(clientId), 1);
+      const result = this.timerList[timerId].removeClient(clientId);
+      if (result) {
+        logExceptInTest(`User ${clientId} removed from Timer ${timerId}`);
         return true;
       } else {
-        logExceptInTest(`removeClientFromTimer: User ${clientId} not found with Timer ${timerId}.`);
-        return false;
+        logExceptInTest(`removeClientFromTimer: User ${clientId} not in Timer ${timerId}`);
+        return true;        
       }
     }
   };
@@ -115,9 +109,10 @@ class RoomManager {
     }
 
     else {
-      for (var timerId in this.timerClientsList) {
-        if (this.timerClientsList[timerId].includes(clientId)) {
-          return this.removeClientFromTimer(timerId, clientId);
+      for (var timerId in this.timerList) {
+        if (this.timerList[timerId].clients.includes(clientId)) {
+          this.timerList[timerId].removeClient(clientId);
+          return true;
         }
       }
     }

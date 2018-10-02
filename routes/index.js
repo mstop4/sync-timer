@@ -21,7 +21,6 @@ const routes = (rm) => {
     const stats = {
       clients: rm.clientList,
       timers: sanitizedTimers,
-      timerClients: rm.timerClientsList
     }
     res.send(stats);
   });

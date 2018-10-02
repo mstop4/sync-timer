@@ -10,6 +10,7 @@ class Timer {
     this.timerRunning = false;
     this.timerLoop = null;
     this.startTime = null;
+    this.clients = [];
     this.updateCallback = updateCallback;
 
     this.updateTimer = this.updateTimer.bind(this);
@@ -53,12 +54,38 @@ class Timer {
     }
   }
 
+  addClient(clientId) {
+    if (!this.clients.includes(clientId)) {
+      this.clients.push(clientId);
+      return true;
+    }
+
+    return false;
+  }
+
+  removeClient(clientId) {
+    if (this.clients.includes(clientId)) {
+      this.clients.splice(this.clients.indexOf(clientId));
+      return true;
+    }
+
+    return false;    
+  }
+
   get time() {
     return {
       hours: padDisplay(this.hours, 2),
       minutes: padDisplay(this.minutes, 2),
       seconds: padDisplay(this.seconds, 2)
     };
+  }
+
+  get clients() {
+    return this._clients;
+  }
+
+  set clients(newClients) {
+    this._clients = newClients;
   }
 }
 
