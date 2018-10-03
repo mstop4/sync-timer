@@ -4,8 +4,9 @@ var socket = io();
 var myTimerId = null;
 
 socket.on('connect', function() {
+
   // Events
-  socket.on('assign id', function(id) {
+  socket.on('assign timerId', function(id) {
     myTimerId = id;
     console.log(`My Timer ID is: ${myTimerId}`);
   });
@@ -28,5 +29,9 @@ var sendStopSignal = function() {
 };
 
 var initTime = function() {
-  socket.emit('handshake', 'gimme time plz');
+  if (myTimerId !== null) {
+    socket.emit('get time', myTimerId);
+  } else {
+    setTimeout(initTime, 1000);
+  }
 }

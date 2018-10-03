@@ -1,6 +1,6 @@
 {
   "name": "sync-timer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,17 @@
     "dev": "NODE_ENV=dev nodemon app.js",
     "start": "NODE_ENV=production node app.js"
   },
+  "engines": {
+    "node": "8.12.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "uniqid": "^5.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -15,6 +15,7 @@ describe('Helper Library', () => {
     const result = logExceptInTest('Hello World');
 
     expect(result).to.be.true;
+    process.env.NODE_ENV = 'test';
   });
 
 
@@ -25,6 +26,6 @@ describe('Helper Library', () => {
 
   it('should not pad stringfied number with two digits already', () => {
     const result = padDisplay('12', 2);
-    expect(result.length).to.eql(2);
+    expect(result).to.have.length(2);
   });
 });
