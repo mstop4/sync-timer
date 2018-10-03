@@ -13,6 +13,8 @@ class Timer {
     this.clients = [];
     this.updateCallback = updateCallback;
 
+    this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
     this.updateTimer = this.updateTimer.bind(this);
   }
 
