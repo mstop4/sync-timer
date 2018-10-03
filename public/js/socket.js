@@ -4,10 +4,12 @@ var socket = io();
 var myTimerId = null;
 
 socket.on('connect', function() {
+
   // Events
-  socket.on('assign id', function(id) {
+  socket.on('assign timerId', function(id) {
     myTimerId = id;
     console.log(`My Timer ID is: ${myTimerId}`);
+    initTime();
   });
 
   socket.on('update timer', function(time) {

@@ -27,7 +27,8 @@ module.exports = (http, roomManager) => {
     }
 
     rm.addClientToTimer(timerId, socket.id); 
-    socket.emit('assign id', timerId);
+    logExceptInTest(`Assign Timer ID ${timerId} to User ${socket.id}`);
+    socket.emit('assign timerId', timerId);
 
     // Events
     socket.on('disconnect', () => {

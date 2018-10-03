@@ -36,10 +36,39 @@ describe('Timer (Server)', () => {
     (async () => {
       await sleep(1000);
       timer.stopTimer();
-      
+
       expect(timer.timerRunning).to.be.false;
-      expect(timer.timerLoop).to.be.null;
+      expect(timer.timerLoop._repeat).to.be.null;
       done();
     })();
+  });
+
+  it('should add a client', () => {
+    const result = timer.addClient('test');
+    expect(result).to.be.true;
+    expect(timer.clients).to.have.members(['test']);
+  });
+
+  it('should not add a client if it is already added to a timer', () => {
+    timer.addClient('test');
+    timer.addClient('foo');
+    const result = timer.addClient('test');
+    expect(result).to.be.false;
+    expect(timer.clients.length).to.eql(2);
+  });
+
+  it('should remove a client', () => {
+    timer.addClient('test');
+    timer.addClient('foo');
+    const result = timer.removeClient('test');
+    expect(result).to.be.true;
+    expect(timer.clients).to.not.have.members(['test']);
+  });
+
+  it('should not remove a client if it was not added to timer', () => {
+    timer.addClient('test');
+    const result = timer.removeClient('foo');
+    expect(result).to.be.false;
+    expect(timer.clients.length).to.eql(1);
   });
 });
