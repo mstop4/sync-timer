@@ -9,7 +9,6 @@ socket.on('connect', function() {
   socket.on('assign timerId', function(id) {
     myTimerId = id;
     console.log(`My Timer ID is: ${myTimerId}`);
-    initTime();
   });
 
   socket.on('update timer', function(time) {
@@ -30,5 +29,9 @@ var sendStopSignal = function() {
 };
 
 var initTime = function() {
-  socket.emit('get time', myTimerId);
+  if (myTimerId !== null) {
+    socket.emit('get time', myTimerId);
+  } else {
+    setTimeout(initTime, 1000);
+  }
 }
