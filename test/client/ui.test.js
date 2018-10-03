@@ -22,7 +22,7 @@ describe('UI Testing', () => {
 
   it('should only have one timer display', async () => {
     await page.waitFor('body');
-    expect(await page.$$('#timer-display')).to.have.lengthOf(1);
+    expect(await page.$$('#timer-display')).to.have.length(1);
   });
 
   it('should have a timer that reads 00:00:00', async () => {

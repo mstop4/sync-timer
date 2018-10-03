@@ -54,7 +54,7 @@ describe('Timer (Server)', () => {
     timer.addClient('foo');
     const result = timer.addClient('test');
     expect(result).to.be.false;
-    expect(timer.clients.length).to.eql(2);
+    expect(timer.clients).to.have.length(2);
   });
 
   it('should remove a client', () => {
@@ -69,6 +69,6 @@ describe('Timer (Server)', () => {
     timer.addClient('test');
     const result = timer.removeClient('foo');
     expect(result).to.be.false;
-    expect(timer.clients.length).to.eql(1);
+    expect(timer.clients).to.have.length(1);
   });
 });
