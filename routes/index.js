@@ -7,6 +7,10 @@ const routes = (rm) => {
   
   /* GET home page. */
   router.get('/', (req, res) => {
+    res.render('index');
+  });
+
+  router.get('/timer', (req, res) => {
     res.render('timer');
   });
 
