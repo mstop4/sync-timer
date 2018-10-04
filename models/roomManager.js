@@ -2,6 +2,7 @@
 
 const { logExceptInTest } = require('../helpers/index');
 const Timer = require('../models/timer');
+const uniqid = require('uniqid');
 
 class RoomManager {
   constructor() {
@@ -14,7 +15,7 @@ class RoomManager {
   }
 
   createTimer() {
-    const id = '12345';
+    const id = uniqid.time();
     const timer = new Timer(this.updateCallback);
     this.timerList[id] = timer;
     logExceptInTest(`New Timer ${id} created`);
