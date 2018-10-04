@@ -3,7 +3,7 @@ html
     title= 'Sync Timer'
     link(rel='stylesheet', type='text/css', href='css/timer.css')
   
-  body
+  body(onload='getDisplayElements()')
     div#timer-display #[span#hours-display 00]:#[span#minutes-display 00]:#[span#seconds-display 00]
     
     button#start-button.control-button(onclick='startTimer()') Start
