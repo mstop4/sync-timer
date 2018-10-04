@@ -14,7 +14,7 @@ const server = (port) => {
   }
   
   app.use(express.static('public'));
-  app.use(express.static('views'));
+  app.set('view engine', 'pug');
 
   const rm = new RoomManager();
 

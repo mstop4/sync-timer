@@ -1,0 +1,14 @@
+html
+  head
+    title= 'Sync Timer'
+    link(rel='stylesheet', type='text/css', href='css/timer.css')
+  
+  body
+    div#timer-display #[span#hours-display 00]:#[span#minutes-display 00]:#[span#seconds-display 00]
+    
+    button#start-button.control-button(onclick='startTimer()') Start
+    button#stop-button.control-button(onclick='stopTimer()') Stop
+  
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script(type='text/javascript', src='js/timerController.js') 
+  script(type='text/javascript', src='js/socket.js')

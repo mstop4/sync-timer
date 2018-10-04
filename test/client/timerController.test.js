@@ -1,11 +1,11 @@
-'use strict';
+/*'use strict';
 
 const fs = require('fs');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const timerController = fs.readFileSync('./public/js/timerController.js', { encoding: 'utf-8' });
 
-JSDOM.fromFile('./views/index.html', { runScripts: 'dangerously' })
+JSDOM.fromFile('./views/timer.html', { runScripts: 'dangerously' })
   .then((dom) => {
     const document = dom.window.document;
     const window = dom.window;
@@ -32,4 +32,4 @@ JSDOM.fromFile('./views/index.html', { runScripts: 'dangerously' })
         expect(seconds).to.eql('45');
       });
     }); 
-  });
+  });*/
