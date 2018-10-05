@@ -15,6 +15,12 @@ socket.on('connect', function() {
   socket.on('update timer', function(time) {
     updateDisplay(time.hours, time.minutes, time.seconds);
   }); 
+
+  socket.on('new user joining', function(data) {
+    if (data.clientId !== socket.id) {
+      console.log('User ' + data.clientId + 'has joined in.');
+    };
+  });
 });
 
 var sendStartSignal = function() {

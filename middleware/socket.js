@@ -4,14 +4,14 @@ const { logExceptInTest } = require('../helpers/index');
 
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
+  const rm = roomManager;
 
   const broadcastUpdate = ((timer) => {
     const time = timer.time;
 
-    io.emit('update timer', time);
+    io.to(timer.id).emit('update timer', time);
   }).bind(this);
 
-  const rm = roomManager;
   rm.updateCallback = broadcastUpdate;
 
   // Socket Logic
@@ -22,11 +22,13 @@ module.exports = (http, roomManager) => {
     socket.on('set up', (timerId) => {
       const tId = timerId ? timerId : rm.createTimer();
 
-      rm.addClient(socket.id);
-      rm.addClientToTimer(tId, socket.id);
-      logExceptInTest(`User ${socket.id} registered`);
-
-      socket.emit('done set up', { timerId: tId });
+      socket.join(tId, () => {
+        rm.addClient(socket.id);
+        rm.addClientToTimer(tId, socket.id);
+        logExceptInTest(`User ${socket.id} registered`);
+        io.to(tId).emit('new user joining', { clientId: socket.id });
+        socket.emit('done set up', { timerId: tId });
+      });
     });
   
     socket.on('get time', (timerId) => {

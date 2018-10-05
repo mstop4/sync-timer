@@ -24,7 +24,7 @@ class RoomManager {
 
   createTimer() {
     const id = uniqid.time();
-    const timer = new Timer(this.updateCallback);
+    const timer = new Timer(this.updateCallback, id);
     this.timerList[id] = timer;
     logExceptInTest(`New Timer ${id} created`);
     return id;
