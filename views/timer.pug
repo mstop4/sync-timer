@@ -8,7 +8,9 @@ html
     
     button#start-button.control-button(onclick='startTimer()') Start
     button#stop-button.control-button(onclick='stopTimer()') Stop
-  
+    
+  script.
+    myTimerId = "#{timerId}"
   script(type='text/javascript', src='/socket.io/socket.io.js')
-  script(type='text/javascript', src='js/timerController.js') 
+  script(type='text/javascript', src='js/timerController.js')
   script(type='text/javascript', src='js/socket.js')

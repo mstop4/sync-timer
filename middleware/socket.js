@@ -16,24 +16,15 @@ module.exports = (http, roomManager) => {
 
   // Socket Logic
   io.on('connection', (socket) => {
-    rm.addClient(socket.id);
-    let timerId;
-
-    // Add new client to timer
-    if (Object.keys(rm.timerList).length === 0) {
-      timerId = rm.createTimer(rm.timerList);
-    } else {
-      timerId = Object.keys(rm.timerList)[0];
-    }
-
-    rm.addClientToTimer(timerId, socket.id); 
-    logExceptInTest(`Assign Timer ID ${timerId} to User ${socket.id}`);
-    socket.emit('assign timerId', timerId);
 
     // Events
-    socket.on('disconnect', () => {
-      logExceptInTest(`User ${socket.id} disconnected`);
-      rm.removeClient(socket.id);
+    socket.on('set up', (timerId) => {
+      const _timerId = timerId === null ? rm.createTimer() : timerId;
+
+      rm.addClient(socket.id);
+      rm.addClientToTimer(_timerId, socket.id);
+      logExceptInTest(`User ${socket.id} registered`);
+      socket.emit('done set up');
     });
   
     socket.on('get time', (timerId) => {
@@ -49,6 +40,11 @@ module.exports = (http, roomManager) => {
     socket.on('stop timer', (timerId) => {
       logExceptInTest(`User ${socket.id} stopped timer ${timerId}`);
       rm.timerList[timerId].stopTimer();
+    });
+
+    socket.on('disconnect', () => {
+      logExceptInTest(`User ${socket.id} disconnected`);
+      rm.removeClient(socket.id);
     });
   });
 };

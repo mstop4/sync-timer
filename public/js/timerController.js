@@ -26,5 +26,5 @@ var getDisplayElements = function() {
   minutesDisplay = document.getElementById('minutes-display');
   secondsDisplay = document.getElementById('seconds-display');
   displayReady = true;
-  initTime();
+  initialize();
 };

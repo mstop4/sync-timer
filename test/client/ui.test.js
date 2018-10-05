@@ -9,7 +9,7 @@ describe('UI Testing', () => {
 
   before (async () => {
     page = await browser.newPage();
-    await page.goto(`http://localhost:${port}`);
+    await page.goto(`http://localhost:${port}/timer`);
   });
 
   after (async () => {

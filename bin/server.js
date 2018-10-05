@@ -20,7 +20,9 @@ const server = (port) => {
 
   // Routes
   const index = require('../routes/index')(rm);
+  const timer = require('../routes/timer')(rm);
   app.use('/', index);
+  app.use('/timer', timer);
 
   // Socket
   const socket = require('../middleware/socket')(http, rm);

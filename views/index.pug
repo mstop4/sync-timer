@@ -1,5 +1,9 @@
 html
   head
-    title= 'Sync Timer'
+    title Sync Timer
   body
     h1 Sync Timer!
+    p= msg
+  script.
+    foo="#{msg}"
+  script(type='text/javascript', src='js/index.js')

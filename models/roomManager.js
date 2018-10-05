@@ -14,6 +14,14 @@ class RoomManager {
     this.removeClientFromAnyTimer = this.removeClientFromAnyTimer.bind(this);
   }
 
+  clientExists(clientId) {
+    return this.clientList.includes(clientId);
+  }
+
+  timerExists(timerId) {
+    return this.timerList.hasOwnProperty(timerId);
+  }
+
   createTimer() {
     const id = uniqid.time();
     const timer = new Timer(this.updateCallback);
@@ -23,7 +31,7 @@ class RoomManager {
   };
 
   deleteTimer(timerId) {
-    if (this.timerList.hasOwnProperty(timerId)) {
+    if (timerExists(timerId)) {
       delete this.timerList[timerId];
       logExceptInTest(`Timer ${timerId} deleted`);
       return true;
@@ -34,7 +42,7 @@ class RoomManager {
   };
 
   addClient(clientId) {
-    if (!this.clientList.includes(clientId)) {
+    if (!clientExists(clientId)) {
       this.clientList.push(clientId);
       logExceptInTest(`User ${clientId} added`);
       return true;
@@ -47,7 +55,7 @@ class RoomManager {
   removeClient(clientId) {
     this.removeClientFromAnyTimer(clientId);
 
-    if (this.clientList.includes(clientId)) {
+    if (clientExists(clientId)) {
       this.clientList.splice(this.clientList.indexOf(clientId), 1);
       logExceptInTest(`User ${clientId} removed`);
       return true;
@@ -58,12 +66,12 @@ class RoomManager {
   };
 
   addClientToTimer(timerId, clientId) {
-    if (!this.timerList.hasOwnProperty(timerId)) {
+    if (!timerExists(timerId)) {
       logExceptInTest(`addClientToTimer: Timer ${timerId} not found.`);
       return false;
     }
 
-    else if (!this.clientList.includes(clientId)) {
+    else if (!clientExists(clientId)) {
       logExceptInTest(`addClientToTimer: User ${clientId} not found.`);
       return false;
     }
@@ -81,12 +89,12 @@ class RoomManager {
   };
 
   removeClientFromTimer(timerId, clientId) {
-    if (!this.timerList.hasOwnProperty(timerId)) {
+    if (!timerExists(timerId)) {
       logExceptInTest(`removeClientFromTimer: Timer ${timerId} not found.`);
       return false;
     }
 
-    else if (!this.clientList.includes(clientId)) {
+    else if (!clientExists(clientId)) {
       logExceptInTest(`removeClientFromTimer: User ${clientId} not found.`);
       return false;
     }
@@ -104,7 +112,7 @@ class RoomManager {
   };
 
   removeClientFromAnyTimer(clientId) {
-    if (!this.clientList.includes(clientId)) {
+    if (!clientExists(clientId)) {
       logExceptInTest(`removeClientFromAnyTimer: User ${clientId} not found.`);
       return false;
     }
