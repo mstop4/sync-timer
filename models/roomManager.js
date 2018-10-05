@@ -31,7 +31,7 @@ class RoomManager {
   };
 
   deleteTimer(timerId) {
-    if (timerExists(timerId)) {
+    if (this.timerExists(timerId)) {
       delete this.timerList[timerId];
       logExceptInTest(`Timer ${timerId} deleted`);
       return true;
@@ -42,7 +42,7 @@ class RoomManager {
   };
 
   addClient(clientId) {
-    if (!clientExists(clientId)) {
+    if (!this.clientExists(clientId)) {
       this.clientList.push(clientId);
       logExceptInTest(`User ${clientId} added`);
       return true;
@@ -55,7 +55,7 @@ class RoomManager {
   removeClient(clientId) {
     this.removeClientFromAnyTimer(clientId);
 
-    if (clientExists(clientId)) {
+    if (this.clientExists(clientId)) {
       this.clientList.splice(this.clientList.indexOf(clientId), 1);
       logExceptInTest(`User ${clientId} removed`);
       return true;
@@ -66,12 +66,12 @@ class RoomManager {
   };
 
   addClientToTimer(timerId, clientId) {
-    if (!timerExists(timerId)) {
+    if (!this.timerExists(timerId)) {
       logExceptInTest(`addClientToTimer: Timer ${timerId} not found.`);
       return false;
     }
 
-    else if (!clientExists(clientId)) {
+    else if (!this.clientExists(clientId)) {
       logExceptInTest(`addClientToTimer: User ${clientId} not found.`);
       return false;
     }
@@ -89,12 +89,12 @@ class RoomManager {
   };
 
   removeClientFromTimer(timerId, clientId) {
-    if (!timerExists(timerId)) {
+    if (!this.timerExists(timerId)) {
       logExceptInTest(`removeClientFromTimer: Timer ${timerId} not found.`);
       return false;
     }
 
-    else if (!clientExists(clientId)) {
+    else if (!this.clientExists(clientId)) {
       logExceptInTest(`removeClientFromTimer: User ${clientId} not found.`);
       return false;
     }
@@ -112,7 +112,7 @@ class RoomManager {
   };
 
   removeClientFromAnyTimer(clientId) {
-    if (!clientExists(clientId)) {
+    if (!this.clientExists(clientId)) {
       logExceptInTest(`removeClientFromAnyTimer: User ${clientId} not found.`);
       return false;
     }

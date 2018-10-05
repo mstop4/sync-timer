@@ -1,12 +1,14 @@
 'use strict';
 
 var socket = io();
-//var myTimerId = null;
 
 socket.on('connect', function() {
 
   // Events
-  socket.on('done set up', function() {
+  socket.on('done set up', function(data) {
+    myTimerId = myTimerId ? myTimerId : data.timerId;
+    var timerEl = document.getElementById('timerId');
+    timerEl.innerText = myTimerId;
     socket.emit('get time', myTimerId);
   });
 

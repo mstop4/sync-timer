@@ -13,7 +13,6 @@ const server = (port) => {
     app.use(logger('dev'));
   }
   
-  app.use(express.static('public'));
   app.set('view engine', 'pug');
 
   const rm = new RoomManager();
@@ -23,6 +22,8 @@ const server = (port) => {
   const timer = require('../routes/timer')(rm);
   app.use('/', index);
   app.use('/timer', timer);
+
+  app.use(express.static('public'));
 
   // Socket
   const socket = require('../middleware/socket')(http, rm);

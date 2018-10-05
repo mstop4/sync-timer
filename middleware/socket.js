@@ -16,15 +16,17 @@ module.exports = (http, roomManager) => {
 
   // Socket Logic
   io.on('connection', (socket) => {
+    logExceptInTest(`User ${socket.id} connected`);
 
     // Events
     socket.on('set up', (timerId) => {
-      const _timerId = timerId === null ? rm.createTimer() : timerId;
+      const tId = timerId ? timerId : rm.createTimer();
 
       rm.addClient(socket.id);
-      rm.addClientToTimer(_timerId, socket.id);
+      rm.addClientToTimer(tId, socket.id);
       logExceptInTest(`User ${socket.id} registered`);
-      socket.emit('done set up');
+
+      socket.emit('done set up', { timerId: tId });
     });
   
     socket.on('get time', (timerId) => {
