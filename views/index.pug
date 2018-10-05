@@ -1,9 +1,14 @@
 html
   head
     title Sync Timer
+    link(rel='stylesheet', type='text/css', href='/css/index.css')
   body
-    h1 Sync Timer!
-    p= msg
-  script.
-    foo="#{msg}"
+    h1 Sync Timer
+    div
+      input#new-timer.menu-button(type='submit' value='Create New Timer' onclick="location.href='timer/new';")
+
+    div
+      input#timer-id-field.menu-field(type='text')
+      input#join-timer.menu-button(type='submit' value='Join Timer' onclick="gotoTimer();")
+
   script(type='text/javascript', src='js/index.js')
