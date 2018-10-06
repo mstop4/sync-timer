@@ -5,6 +5,10 @@ const router = express.Router();
 
 const routes = (rm) => {
 
+  router.get('/', (req, res) => {
+    res.redirect('../');
+  });
+
   router.get('/new', (req, res) => {
     res.render('timer', { timerId: null });
   });
