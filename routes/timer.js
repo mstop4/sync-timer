@@ -6,11 +6,12 @@ const router = express.Router();
 const routes = (rm) => {
 
   router.get('/', (req, res) => {
-    res.redirect('../');
+    res.redirect('/');
   });
 
   router.get('/new', (req, res) => {
-    res.render('timer', { timerId: null });
+    const timerId = rm.createTimer();
+    res.redirect(`/timer/${timerId}`);
   });
 
   router.get('/:id', (req, res) => {

@@ -20,6 +20,8 @@ module.exports = (http, roomManager) => {
 
     // Events
     socket.on('set up', (timerId) => {
+      // A failsafe to make sure a valid Timer Id is obtained at this point.
+      // Being passed an invalid timerId (undefined, null) should not happen.
       const tId = timerId ? timerId : rm.createTimer();
 
       socket.join(tId, () => {
