@@ -69,7 +69,7 @@ class Timer {
 
   removeClient(clientId) {
     if (this.clients.includes(clientId)) {
-      this.clients.splice(this.clients.indexOf(clientId));
+      this.clients.splice(this.clients.indexOf(clientId), 1);
       return true;
     }
 

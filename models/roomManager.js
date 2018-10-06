@@ -10,6 +10,7 @@ class RoomManager {
     this.timerList = {};
     this.updateCallback = null;
 
+    this.deleteTimer = this.deleteTimer.bind(this);
     this.removeClientFromTimer = this.removeClientFromTimer.bind(this);
     this.removeClientFromAnyTimer = this.removeClientFromAnyTimer.bind(this);
   }
@@ -125,19 +126,7 @@ class RoomManager {
     else {
       for (var timerId in this.timerList) {
         if (this.timerList[timerId].clients.includes(clientId)) {
-          const result = this.timerList[timerId].removeClient(clientId);
-
-          if (result) {
-            logExceptInTest(`User ${clientId} removed from Timer ${timerId}`);
-            if (this.timerList[timerId].clients.length === 0) {
-              this.deleteTimer(timerId);
-              logExceptInTest(`Deleted unused Timer ${timerId}`);
-            }
-            return true;
-          } else {
-            logExceptInTest(`removeClientFromAnyTimer: User ${clientId} not in Timer ${timerId}`);
-            return false;        
-          }
+          return this.removeClientFromTimer(timerId, clientId);
         }
       }
     }
