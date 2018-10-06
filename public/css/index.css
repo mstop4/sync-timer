@@ -1,7 +1,9 @@
-#timer-display {
-  font-size: 8em;
+.menu-button {
+  font-size: 2em;
+  margin: 0.5em, 0;
 }
 
-.control-button {
-  font-size: 4em;
+.menu-field {
+  font-size: 2em;
+  margin: 0.5em 0.5em;
 }

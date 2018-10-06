@@ -4,36 +4,33 @@ const { logExceptInTest } = require('../helpers/index');
 
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
+  const rm = roomManager;
 
   const broadcastUpdate = ((timer) => {
     const time = timer.time;
 
-    io.emit('update timer', time);
+    io.to(timer.id).emit('update timer', time);
   }).bind(this);
 
-  const rm = roomManager;
   rm.updateCallback = broadcastUpdate;
 
   // Socket Logic
   io.on('connection', (socket) => {
-    rm.addClient(socket.id);
-    let timerId;
-
-    // Add new client to timer
-    if (Object.keys(rm.timerList).length === 0) {
-      timerId = rm.createTimer(rm.timerList);
-    } else {
-      timerId = Object.keys(rm.timerList)[0];
-    }
-
-    rm.addClientToTimer(timerId, socket.id); 
-    logExceptInTest(`Assign Timer ID ${timerId} to User ${socket.id}`);
-    socket.emit('assign timerId', timerId);
+    logExceptInTest(`User ${socket.id} connected`);
 
     // Events
-    socket.on('disconnect', () => {
-      logExceptInTest(`User ${socket.id} disconnected`);
-      rm.removeClient(socket.id);
+    socket.on('set up', (timerId) => {
+      // A failsafe to make sure a valid Timer Id is obtained at this point.
+      // Being passed an invalid timerId (undefined, null) should not happen.
+      const tId = timerId ? timerId : rm.createTimer();
+
+      socket.join(tId, () => {
+        rm.addClient(socket.id);
+        rm.addClientToTimer(tId, socket.id);
+        logExceptInTest(`User ${socket.id} registered`);
+        io.to(tId).emit('new user joining', { clientId: socket.id });
+        socket.emit('done set up', { timerId: tId });
+      });
     });
   
     socket.on('get time', (timerId) => {
@@ -49,6 +46,11 @@ module.exports = (http, roomManager) => {
     socket.on('stop timer', (timerId) => {
       logExceptInTest(`User ${socket.id} stopped timer ${timerId}`);
       rm.timerList[timerId].stopTimer();
+    });
+
+    socket.on('disconnect', () => {
+      logExceptInTest(`User ${socket.id} disconnected`);
+      rm.removeClient(socket.id);
     });
   });
 };

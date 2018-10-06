@@ -7,7 +7,7 @@ const routes = (rm) => {
   
   /* GET home page. */
   router.get('/', (req, res) => {
-    res.sendFile('index.html');
+    res.render('index', { msg: 'foo' });
   });
 
   router.get('/stats', (req, res) => {

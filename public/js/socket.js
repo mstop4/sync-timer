@@ -1,19 +1,26 @@
 'use strict';
 
 var socket = io();
-var myTimerId = null;
 
 socket.on('connect', function() {
 
   // Events
-  socket.on('assign timerId', function(id) {
-    myTimerId = id;
-    console.log(`My Timer ID is: ${myTimerId}`);
+  socket.on('done set up', function(data) {
+    myTimerId = myTimerId ? myTimerId : data.timerId;
+    var timerEl = document.getElementById('timerId');
+    timerEl.innerText = myTimerId;
+    socket.emit('get time', myTimerId);
   });
 
   socket.on('update timer', function(time) {
     updateDisplay(time.hours, time.minutes, time.seconds);
   }); 
+
+  socket.on('new user joining', function(data) {
+    if (data.clientId !== socket.id) {
+      console.log('User ' + data.clientId + 'has joined in.');
+    };
+  });
 });
 
 var sendStartSignal = function() {
@@ -28,10 +35,6 @@ var sendStopSignal = function() {
   }
 };
 
-var initTime = function() {
-  if (myTimerId !== null) {
-    socket.emit('get time', myTimerId);
-  } else {
-    setTimeout(initTime, 1000);
-  }
+var initialize = function() {
+  socket.emit('set up', myTimerId);
 }

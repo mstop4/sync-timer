@@ -1,9 +1,10 @@
 'use strict';
 
+const timerTickInterval = 200;
 const { padDisplay } = require('../helpers/index');
 
 class Timer {
-  constructor(updateCallback) {
+  constructor(updateCallback, id) {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
@@ -12,6 +13,7 @@ class Timer {
     this.startTime = null;
     this.clients = [];
     this.updateCallback = updateCallback;
+    this.id = id;
 
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
@@ -22,7 +24,7 @@ class Timer {
     this.timerRunning = true;
     this.resetTimer();
     this.startTime = Date.now();
-    this.timerLoop = setInterval(this.updateTimer, 100);
+    this.timerLoop = setInterval(this.updateTimer, timerTickInterval);
   }
   
   stopTimer() {

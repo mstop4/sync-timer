@@ -4,12 +4,12 @@ require('dotenv').config();
 const port = process.env.PORT_TEST || 3001;
 const { sleep } = require('../../helpers/index.js');
 
-describe('UI Testing', () => {
+describe.skip('UI Testing', () => {
   let page;
 
   before (async () => {
     page = await browser.newPage();
-    await page.goto(`http://localhost:${port}`);
+    await page.goto(`http://localhost:${port}/timer`);
   });
 
   after (async () => {
