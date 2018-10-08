@@ -6,7 +6,6 @@ describe('Helper Library', () => {
 
   it('should not log anything in test environment', () => {
     const result = logExceptInTest('Hello World');
-
     expect(result).to.be.false;
   });
 
