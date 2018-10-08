@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const RoomManager = require('../models/roomManager');
+const RoomManager = require('../models/RoomManager');
 
 const server = (port) => {
   

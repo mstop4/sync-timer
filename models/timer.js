@@ -1,7 +1,7 @@
 'use strict';
 
 const timerTickInterval = 200;
-const { padDisplay } = require('../helpers/index');
+const { padDisplay } = require('../helpers');
 
 class Timer {
   constructor(updateCallback, id) {

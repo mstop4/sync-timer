@@ -1,7 +1,7 @@
 'use strict';
 
-const { logExceptInTest } = require('../helpers/index');
-const Timer = require('../models/timer');
+const { logExceptInTest } = require('../helpers');
+const Timer = require('./Timer');
 const uniqid = require('uniqid');
 
 class RoomManager {

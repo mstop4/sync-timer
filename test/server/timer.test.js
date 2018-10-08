@@ -1,7 +1,7 @@
 'use strict';
 
 const Timer = require('../../models/timer');
-const { sleep } = require('../../helpers/index');
+const { sleep } = require('../../helpers');
 let timer = null;
 
 describe('Timer (Server)', () => {

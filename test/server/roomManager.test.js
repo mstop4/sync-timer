@@ -1,6 +1,6 @@
 'use strict';
 
-const RoomManager = require('../../models/roomManager');
+const RoomManager = require('../../models/RoomManager');
 let rm;
 
 describe('Room Manager', () => {
