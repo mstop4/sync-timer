@@ -1,3 +1,7 @@
+h1 {
+  margin: 2vh;
+}
+
 #timer-ui {
   display: flex;
   flex-direction: column;
@@ -7,9 +11,19 @@
 }
 
 #timer-display {
-  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 400%;
+}
+
+#buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2vh;
 }
 
 .control-button {
-  font-size: 4em;
+  font-size: 8vh;
 }
