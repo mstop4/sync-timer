@@ -1,6 +1,6 @@
 'use strict';
 
-const { logExceptInTest } = require('../helpers/index');
+const { logExceptInTest } = require('../helpers');
 
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);

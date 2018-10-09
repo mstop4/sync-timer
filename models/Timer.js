@@ -1,7 +1,7 @@
 'use strict';
 
 const timerTickInterval = 200;
-const { padDisplay } = require('../helpers/index');
+const { padDisplay } = require('../helpers');
 
 class Timer {
   constructor(updateCallback, id) {
@@ -21,16 +21,20 @@ class Timer {
   }
 
   startTimer() {
-    this.timerRunning = true;
-    this.resetTimer();
-    this.startTime = Date.now();
-    this.timerLoop = setInterval(this.updateTimer, timerTickInterval);
+    if (!this.timerRunning) {
+      this.timerRunning = true;
+      this.resetTimer();
+      this.startTime = Date.now();
+      this.timerLoop = setInterval(this.updateTimer, timerTickInterval);
+    }
   }
   
   stopTimer() {
-    this.timerRunning = false;
-    if (this.timerLoop !== undefined && this.timerLoop._repeat) {
-      clearInterval(this.timerLoop);
+    if (this.timerRunning) {
+      this.timerRunning = false;
+      if (this.timerLoop !== undefined && this.timerLoop._repeat) {
+        clearInterval(this.timerLoop);
+      }
     }
   }
 

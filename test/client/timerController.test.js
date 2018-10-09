@@ -16,7 +16,7 @@ JSDOM.fromFile('./views/timer.html', { runScripts: 'dangerously' })
     // Stub
     window.initTime = window.updateDisplay.bind(null, '00', '00', '00');
     
-    describe('Timer Controller (Client)', () => {
+    describe('Timer Controller', () => {
       after(() => {
         window.close();
       });
