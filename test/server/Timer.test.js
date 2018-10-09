@@ -1,6 +1,6 @@
 'use strict';
 
-const Timer = require('../../models/timer');
+const Timer = require('../../models/Timer');
 const { sleep } = require('../../helpers');
 let timer = null;
 
