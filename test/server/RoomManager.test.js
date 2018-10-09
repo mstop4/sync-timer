@@ -129,13 +129,13 @@ describe('Room Manager', () => {
       expect(rm.timerList[timerId].clients.includes(clientIdSeeds[0])).to.be.false;
     });
   
-    it('should delete a timer if it has no clients', () => {
+    it('should activate timer GC if it has no clients', () => {
       rm.addClient(clientIdSeeds[0]);
       const timerId = rm.createTimer();
       rm.addClientToTimer(timerId, clientIdSeeds[0]);
       rm.removeClientFromTimer(timerId, clientIdSeeds[0]);
   
-      expect(rm.timerList[timerId]).to.eql(undefined);
+      expect(rm.timerGCList[timerId]).to.not.eql(undefined);
     });
   
     it('should not remove a client from a timer that does not exist', () => {

@@ -1,5 +1,13 @@
+#timer-ui {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
 #timer-display {
-  font-size: 8em;
+  font-size: 8rem;
 }
 
 .control-button {

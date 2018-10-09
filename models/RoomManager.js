@@ -4,10 +4,13 @@ const { logExceptInTest } = require('../helpers');
 const Timer = require('./Timer');
 const uniqid = require('uniqid');
 
+const timerGCDelay = 5 * 60 * 1000; // 5 minutes 
+
 class RoomManager {
   constructor() {
     this.clientList = [];
     this.timerList = {};
+    this.timerGCList = {};
     this.updateCallback = null;
 
     this.deleteTimer = this.deleteTimer.bind(this);
@@ -81,6 +84,13 @@ class RoomManager {
       const result = this.timerList[timerId].addClient(clientId);
       if (result) {
         logExceptInTest(`User ${clientId} added to Timer ${timerId}`);
+
+        if (this.timerGCList[timerId]) {
+          clearInterval(this.timerGCList[timerId]);
+          this.timerGCList[timerId] = null;
+          logExceptInTest(`Unmark Timer ${timerId} from deletion`);
+        }
+
         return true;
       } else {
         logExceptInTest(`addClientToTimer: User ${clientId} already added to Timer ${timerId}`);
@@ -105,10 +115,14 @@ class RoomManager {
 
       if (result) {
         logExceptInTest(`User ${clientId} removed from Timer ${timerId}`);
+
         if (this.timerList[timerId].clients.length === 0) {
-          this.deleteTimer(timerId);
-          logExceptInTest(`Deleted unused Timer ${timerId}`);
+          this.timerGCList[timerId] = setInterval(() => {
+            this.deleteTimer(timerId);
+          }, timerGCDelay);
+          logExceptInTest(`Mark unused Timer ${timerId} for deletion`);
         }
+        
         return true;
       } else {
         logExceptInTest(`removeClientFromTimer: User ${clientId} not in Timer ${timerId}`);
