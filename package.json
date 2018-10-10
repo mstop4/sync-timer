@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production npm run scss && node app.js",
-    "dev": "NODE_ENV=dev npm run scss && nodemon app.js",
+    "dev": "NODE_ENV=dev npm run scss && nodemon app.js -e js,pug",
     "test": "NODE_ENV=test mocha",
-    "scss": "node-sass ./stylesheets -o ./public/css"
+    "scss": "node-sass ./stylesheets -o ./public/css",
+    "scss:watch":"node-sass --watch ./stylesheets -o ./public/css"
   },
   "engines": {
     "node": "8.12.0"
