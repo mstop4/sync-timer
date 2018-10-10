@@ -4,9 +4,10 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production npm run scss && node app.js",
+    "dev": "NODE_ENV=dev npm run scss && nodemon app.js",
     "test": "NODE_ENV=test mocha",
-    "dev": "NODE_ENV=dev nodemon app.js",
-    "start": "NODE_ENV=production node app.js"
+    "scss": "node-sass ./stylesheets -o ./public/css"
   },
   "engines": {
     "node": "8.12.0"
@@ -25,6 +26,7 @@
     "chai": "^4.1.2",
     "jsdom": "^12.0.0",
     "mocha": "^5.2.0",
+    "node-sass": "^4.9.3",
     "nodemon": "^1.18.4",
     "puppeteer": "^1.8.0",
     "socket.io-client": "^2.1.1"
