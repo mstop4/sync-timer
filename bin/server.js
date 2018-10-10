@@ -18,9 +18,11 @@ const server = (port) => {
   const rm = new RoomManager();
 
   // Routes
-  const index = require('../routes/index')(rm);
+  const index = require('../routes/index');
+  const api = require('../routes/api')(rm);
   const timer = require('../routes/timer')(rm);
   app.use('/', index);
+  app.use('/api', api);
   app.use('/timer', timer);
 
   app.use(express.static('public'));

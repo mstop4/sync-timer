@@ -1,7 +1,9 @@
 html
   head
     title Sync Timer
-    link(rel='stylesheet', type='text/css', href='/css/index.css')
+    include partials/head.pug
+    link(rel="stylesheet", type="text/css", href="/css/index.css")
+    
   body
     h1 Sync Timer
     div
@@ -9,6 +11,6 @@ html
 
     div
       button#join-timer.menu-button(onclick="gotoTimer();") Join Timer
-      input#timer-id-field.menu-field(type='text')
+      input#timer-id-field.menu-field(type="text")
 
-  script(type='text/javascript', src='js/index.js')
+  script(type="text/javascript", src="js/index.js")

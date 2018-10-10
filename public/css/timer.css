@@ -1,7 +1,58 @@
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Baloo", "cursive"; }
+
+button {
+  color: white;
+  background-color: gray;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 8vh; }
+  button:focus {
+    outline: none; }
+
+h1 {
+  margin: 2vh; }
+
+#timer-ui {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; }
+
+/* Display */
 #timer-display {
-  font-size: 8em;
-}
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 250px; }
+
+.digit {
+  text-align: center;
+  vertical-align: middle;
+  width: 12%; }
+
+.separator {
+  text-align: center;
+  vertical-align: middle;
+  width: 10%; }
+
+/* Buttons */
+#buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2vh; }
 
 .control-button {
-  font-size: 4em;
-}
+  color: white;
+  background-color: gray;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 8vh; }
