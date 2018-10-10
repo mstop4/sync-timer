@@ -14,14 +14,17 @@ const routes = (rm) => {
     res.redirect(`/timer/${timerId}`);
   });
 
+  router.get('/404', (req, res) => {
+    res.render('timer404');
+  });
+
   router.get('/:id', (req, res) => {
     if (rm.timerExists(req.params.id)) {
       res.render('timer', { timerId: req.params.id });
     } else {
-      res.render('timer404');
+      res.redirect('/timer/404');
     }
   });
-
 
   return router;
 }

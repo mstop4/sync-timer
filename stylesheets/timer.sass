@@ -1,16 +1,9 @@
-body 
-  background-color: rgba(0,0,0,0.75)
-  background-blend-mode: multiply
-  background-image: url("../img/background2.jpg")
-  background-size: cover
-  background-position: left bottom
-
+@import partials/body
+  
 h1
   margin: 2vh
 
 #timer-ui 
-  color: white
-  font-family: 'Baloo', 'cursive'
   display: flex
   flex-direction: column
   justify-content: space-between
@@ -24,12 +17,12 @@ h1
   display: flex
   justify-content: center
   width: 100%
-  font-size: 200px
+  font-size: 250px
 
 .digit 
   text-align: center
   vertical-align: middle
-  width: 10%
+  width: 12%
 
 .separator 
   text-align: center
@@ -48,5 +41,6 @@ h1
 .control-button 
   color: white
   background-color: gray
-  border-radius: 25%
+  padding: 1vh
+  border-radius: 2vh
   font-size: 8vh
