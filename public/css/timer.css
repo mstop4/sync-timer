@@ -1,8 +1,13 @@
+body {
+  background: #2C2548;
+}
+
 h1 {
   margin: 2vh;
 }
 
 #timer-ui {
+  color: #FDD835;
   font-family: 'Baloo', 'cursive';
   display: flex;
   flex-direction: column;
@@ -11,12 +16,28 @@ h1 {
   height: 100%;
 }
 
+/* Display */
+
 #timer-display {
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 128px;
+  font-size: 200px;
 }
+
+.digit {
+  text-align: center;
+  vertical-align: middle;
+  width: 10%;
+}
+
+.separator {
+  text-align: center;
+  vertical-align: middle;
+  width: 10%;
+}
+
+/* Buttons */
 
 #buttons {
   width: 100%;
