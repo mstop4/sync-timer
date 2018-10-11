@@ -12,10 +12,29 @@ button {
   background-color: gray;
   padding: 1vh;
   border-radius: 2vh;
-  font-size: 6.5vh; }
+  font-size: 6.5vh;
+  margin: 0.5vh 0; }
   button:focus {
     outline: none; }
 
+/* Animation Deets */
+@keyframes enter {
+  from {
+    color: rgba(255, 255, 255, 0);
+    transform: translateY(-5vw); }
+  to {
+    color: white;
+    transform: translateY(0vw); } }
+
+@keyframes exit {
+  from {
+    color: white;
+    transform: translateY(0vw); }
+  to {
+    color: rgba(255, 255, 255, 0);
+    transform: translateY(5vw); } }
+
+/* ------ */
 h1 {
   margin: 2vh; }
 
@@ -34,10 +53,27 @@ h1 {
   font-size: 20vw;
   font-weight: 400; }
 
+/* Digits */
 .digit {
-  text-align: center;
-  vertical-align: middle;
   width: 13vw; }
+  .digit .front {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    color: white; }
+  .digit .back {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 0); }
+  .digit .animate-in {
+    animation-name: enter;
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .digit .animate-out {
+    animation-name: exit;
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .separator {
   text-align: center;

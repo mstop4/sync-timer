@@ -7,8 +7,28 @@ html
   body(onload="getDisplayElements()")
     div#timer-ui
       h1 Timer #[span#timerId=myTimerId]
-      div#timer-display #[span#hours-tens.digit 0]#[span#hours-ones.digit 0]#[span.separator :]#[span#minutes-tens.digit 0]#[span#minutes-ones.digit 0]#[.separator :]#[span#seconds-tens.digit 0]#[span#seconds-ones.digit 0]
-      
+      div#timer-display 
+        div#hours-tens.digit
+          span.front 0
+          span.back 8
+        div#hours-ones.digit 
+          span.front 0
+          span.back 8
+        span.separator :
+        div#minutes-tens.digit 
+          span.front 0
+          span.back 8
+        div#minutes-ones.digit 
+          span.front 0
+          span.back 8
+        span.separator :
+        div#seconds-tens.digit
+          span.front 0
+          span.back 8
+        div#seconds-ones.digit
+          span.front 0
+          span.back 8
+
       div#buttons
         button#start-button.control-button(onclick="startTimer()") Start
         button#stop-button.control-button(onclick="stopTimer()") Stop
