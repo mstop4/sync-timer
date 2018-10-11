@@ -17,6 +17,24 @@ button {
   button:focus {
     outline: none; }
 
+/* Animation Deets */
+@keyframes enter {
+  from {
+    color: rgba(255, 255, 255, 0);
+    transform: translateY(-5vw); }
+  to {
+    color: white;
+    transform: translateY(0vw); } }
+
+@keyframes exit {
+  from {
+    color: white;
+    transform: translateY(0vw); }
+  to {
+    color: rgba(255, 255, 255, 0);
+    transform: translateY(5vw); } }
+
+/* ------ */
 h1 {
   margin: 2vh; }
 
@@ -36,22 +54,6 @@ h1 {
   font-weight: 400; }
 
 /* Digits */
-@keyframes enter {
-  from {
-    color: rgba(255, 255, 255, 0);
-    transform: translateY(-5vw); }
-  to {
-    color: white;
-    transform: translateY(0vw); } }
-
-@keyframes exit {
-  from {
-    color: white;
-    transform: translateY(0vw); }
-  to {
-    color: rgba(255, 255, 255, 0);
-    transform: translateY(5vw); } }
-
 .digit {
   width: 13vw; }
   .digit .front {
@@ -66,10 +68,12 @@ h1 {
     color: rgba(255, 255, 255, 0); }
   .digit .animate-in {
     animation-name: enter;
-    animation-duration: 0.25s; }
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
   .digit .animate-out {
     animation-name: exit;
-    animation-duration: 0.25s; }
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .separator {
   text-align: center;

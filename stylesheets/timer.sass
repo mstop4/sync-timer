@@ -1,5 +1,29 @@
 @import partials/body
+
+/* Animation Deets */
+
+$animation-length: 0.25s;
+$displacement: 5vw
+$path: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+@keyframes enter
+  from 
+    color: rgba(255, 255, 255, 0)
+    transform: translateY(-$displacement)
+  to   
+    color: rgba(255, 255, 255, 1)
+    transform: translateY(0vw)
+
+@keyframes exit
+  from 
+    color: rgba(255, 255, 255, 1)
+    transform: translateY(0vw)
+  to   
+    color: rgba(255, 255, 255, 0)
+    transform: translateY($displacement)
   
+/* ------ */
+
 h1
   margin: 2vh
 
@@ -22,25 +46,6 @@ h1
 
 /* Digits */
 
-$animation-length: 0.25s;
-$displacement: 5vw
-
-@keyframes enter
-  from 
-    color: rgba(255, 255, 255, 0)
-    transform: translateY(-$displacement)
-  to   
-    color: rgba(255, 255, 255, 1)
-    transform: translateY(0vw)
-
-@keyframes exit
-  from 
-    color: rgba(255, 255, 255, 1)
-    transform: translateY(0vw)
-  to   
-    color: rgba(255, 255, 255, 0)
-    transform: translateY($displacement)
-
 .digit 
   width: 13vw
 
@@ -59,10 +64,12 @@ $displacement: 5vw
   .animate-in
     animation-name: enter
     animation-duration: $animation-length
+    animation-timing-function: $path
 
   .animate-out
     animation-name: exit
     animation-duration: $animation-length
+    animation-timing-function: $path
 
 
 .separator 
