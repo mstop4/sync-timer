@@ -22,13 +22,24 @@ h1
 
 /* Digits */
 
+$animation-length: 0.25s;
+$displacement: 5vw
+
 @keyframes enter
-  from {color: rgba(255, 255, 255, 0)}
-  to   {color: rgba(255, 255, 255, 1)} 
+  from 
+    color: rgba(255, 255, 255, 0)
+    transform: translateY(-$displacement)
+  to   
+    color: rgba(255, 255, 255, 1)
+    transform: translateY(0vw)
 
 @keyframes exit
-  from {color: rgba(255, 255, 255, 1)}
-  to   {color: rgba(255, 255, 255, 0)} 
+  from 
+    color: rgba(255, 255, 255, 1)
+    transform: translateY(0vw)
+  to   
+    color: rgba(255, 255, 255, 0)
+    transform: translateY($displacement)
 
 .digit 
   width: 13vw
@@ -47,11 +58,11 @@ h1
 
   .animate-in
     animation-name: enter
-    animation-duration: 0.25s
+    animation-duration: $animation-length
 
   .animate-out
     animation-name: exit
-    animation-duration: 0.25s
+    animation-duration: $animation-length
 
 
 .separator 
