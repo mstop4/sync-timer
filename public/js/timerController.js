@@ -6,6 +6,11 @@ var minutesTens;
 var minutesOnes;
 var secondsTens;
 var secondsOnes;
+
+var curHour = '';
+var curMinute = '';
+var curSecond = '';
+
 var displayReady = false;
 
 var startTimer = function() {
@@ -17,13 +22,28 @@ var stopTimer = function() {
 };
 
 var updateDisplay = function(hours, minutes, seconds) {
-  if (displayReady) {
-    hoursTens.innerText = hours.charAt(0);
-    hoursOnes.innerText = hours.charAt(1);
-    minutesTens.innerText = minutes.charAt(0);
-    minutesOnes.innerText = minutes.charAt(1);
-    secondsTens.innerText = seconds.charAt(0);
-    secondsOnes.innerText = seconds.charAt(1);
+  if (displayReady &&
+      (curHour !== hours ||
+       curMinute !== minutes ||
+       curSecond !== seconds)) {
+
+    hoursTens.getElementsByClassName('back')[0].innerText = curHour.charAt(0);
+    hoursOnes.getElementsByClassName('back')[0].innerText = curHour.charAt(1);
+    minutesTens.getElementsByClassName('back')[0].innerText = curMinute.charAt(0);
+    minutesOnes.getElementsByClassName('back')[0].innerText = curMinute.charAt(1);
+    secondsTens.getElementsByClassName('back')[0].innerText = curSecond.charAt(0);
+    secondsOnes.getElementsByClassName('back')[0].innerText = curSecond.charAt(1);
+
+    hoursTens.getElementsByClassName('front')[0].innerText = hours.charAt(0);
+    hoursOnes.getElementsByClassName('front')[0].innerText = hours.charAt(1);
+    minutesTens.getElementsByClassName('front')[0].innerText = minutes.charAt(0);
+    minutesOnes.getElementsByClassName('front')[0].innerText = minutes.charAt(1);
+    secondsTens.getElementsByClassName('front')[0].innerText = seconds.charAt(0);
+    secondsOnes.getElementsByClassName('front')[0].innerText = seconds.charAt(1);
+
+    curHour = hours;
+    curMinute = minutes;
+    curSecond = seconds;
   }
 };
 

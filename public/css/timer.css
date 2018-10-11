@@ -35,10 +35,17 @@ h1 {
   font-size: 20vw;
   font-weight: 400; }
 
+/* Digits */
 .digit {
-  text-align: center;
-  vertical-align: middle;
   width: 13vw; }
+  .digit .front {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle; }
+  .digit .back {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle; }
 
 .separator {
   text-align: center;
