@@ -19,8 +19,9 @@ const routes = (rm) => {
   });
 
   router.get('/:id', (req, res) => {
-    if (rm.timerExists(req.params.id)) {
-      res.status(200).render('timer', { timerId: req.params.id });
+    const validId = req.params.id.toLowerCase();
+    if (rm.timerExists(validId)) {
+      res.status(200).render('timer', { timerId: validId });
     } else {
       res.redirect('/timer/404');
     }
