@@ -60,12 +60,20 @@ h1 {
     position: absolute;
     text-align: center;
     vertical-align: middle;
-    color: white; }
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
   .digit .back {
     position: absolute;
     text-align: center;
     vertical-align: middle;
-    color: rgba(255, 255, 255, 0); }
+    color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
   .digit .animate-in {
     animation-name: enter;
     animation-duration: 0.25s;
@@ -78,7 +86,11 @@ h1 {
 .separator {
   text-align: center;
   vertical-align: middle;
-  width: 8vw; }
+  width: 8vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /* Buttons */
 #buttons {
