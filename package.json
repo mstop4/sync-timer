@@ -4,17 +4,18 @@
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production npm run scss && node app.js",
-    "dev": "NODE_ENV=dev npm run scss && nodemon app.js -e js,pug",
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=dev nodemon app.js -e js",
     "test": "NODE_ENV=test mocha",
+    "heroku-postbuild": "npm run scss",
     "scss": "node-sass ./stylesheets -o ./public/css",
     "scss:watch": "node-sass --watch --recursive ./stylesheets -o ./public/css"
   },
   "engines": {
     "node": "8.12.0"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "M.S.T.O.P.",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
