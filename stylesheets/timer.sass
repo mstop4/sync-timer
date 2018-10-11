@@ -22,6 +22,14 @@ h1
 
 /* Digits */
 
+@keyframes enter
+  from {color: rgba(255, 255, 255, 0)}
+  to   {color: rgba(255, 255, 255, 1)} 
+
+@keyframes exit
+  from {color: rgba(255, 255, 255, 1)}
+  to   {color: rgba(255, 255, 255, 0)} 
+
 .digit 
   width: 13vw
 
@@ -29,11 +37,22 @@ h1
     position: absolute
     text-align: center
     vertical-align: middle
+    color: rgba(255, 255, 255, 1)
 
   .back
     position: absolute
     text-align: center
     vertical-align: middle
+    color: rgba(255, 255, 255, 0)
+
+  .animate-in
+    animation-name: enter
+    animation-duration: 0.25s
+
+  .animate-out
+    animation-name: exit
+    animation-duration: 0.25s
+
 
 .separator 
   text-align: center

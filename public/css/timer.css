@@ -36,16 +36,36 @@ h1 {
   font-weight: 400; }
 
 /* Digits */
+@keyframes enter {
+  from {
+    color: rgba(255, 255, 255, 0); }
+  to {
+    color: white; } }
+
+@keyframes exit {
+  from {
+    color: white; }
+  to {
+    color: rgba(255, 255, 255, 0); } }
+
 .digit {
   width: 13vw; }
   .digit .front {
     position: absolute;
     text-align: center;
-    vertical-align: middle; }
+    vertical-align: middle;
+    color: white; }
   .digit .back {
     position: absolute;
     text-align: center;
-    vertical-align: middle; }
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 0); }
+  .digit .animate-in {
+    animation-name: enter;
+    animation-duration: 0.25s; }
+  .digit .animate-out {
+    animation-name: exit;
+    animation-duration: 0.25s; }
 
 .separator {
   text-align: center;
