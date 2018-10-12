@@ -6,7 +6,11 @@ html
   
   body(onload="getDisplayElements()")
     div#timer-ui
-      h1 Timer #[span#timerId=myTimerId]
+      div#info-container
+        div#info 
+          span Timer&nbsp;#[span#timerId=myTimerId]
+          span#running-state &nbsp;Pending
+
       div#timer-display 
         div#hours-tens.digit
           div.front 0

@@ -35,15 +35,21 @@ button {
     transform: translateY(5vw); } }
 
 /* ------ */
-h1 {
-  margin: 2vh; }
-
 #timer-ui {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100%; }
+
+#info-container {
+  width: 100%; }
+
+#info {
+  margin: 1vh 2vh;
+  font-size: 6.5vh;
+  display: flex;
+  justify-content: space-between; }
 
 /* Display */
 #timer-display {
