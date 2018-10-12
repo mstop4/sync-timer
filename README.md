@@ -18,13 +18,14 @@ An online stopwatch service. Multiple clients can display a synchronized timer b
 
 ## Demo
 
-https://sync-timer.herokuapp.com/
+Main: https://sync-timer.herokuapp.com
+Mirror: https://sync-timer.azurewebsites.net
 
 ## Stack
 
 * Node 8.12.0
 * Express 4
-* Socket.io 2
+* Socke<span>t.io</span> 2
 * Pug
 * Sass
 * uniqid
