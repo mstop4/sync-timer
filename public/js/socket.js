@@ -16,6 +16,15 @@ socket.on('connect', function() {
     updateDisplay(time.hours, time.minutes, time.seconds);
   }); 
 
+  socket.on('timer started', function(time) {
+    statusEl.innerText = 'Running';
+  }); 
+
+  socket.on('timer stopped', function(time) {
+    statusEl.innerText = 'Stopped';
+  }); 
+
+
   socket.on('new user joining', function(data) {
     if (data.clientId !== socket.id) {
       console.log('User ' + data.clientId + 'has joined in.');

@@ -13,6 +13,8 @@ var minutesOnesBack;
 var secondsTensBack;
 var secondsOnesBack;
 
+var statusEl;
+
 var curHour = '';
 var curMinute = '';
 var curSecond = '';
@@ -128,6 +130,9 @@ var getDisplayElements = function() {
   minutesOnesBack = document.getElementById('minutes-ones').getElementsByClassName('back')[0];
   secondsTensBack = document.getElementById('seconds-tens').getElementsByClassName('back')[0];
   secondsOnesBack = document.getElementById('seconds-ones').getElementsByClassName('back')[0];
+
+  statusEl = document.getElementById('running-state');
+
   displayReady = true;
   initialize();
 };
