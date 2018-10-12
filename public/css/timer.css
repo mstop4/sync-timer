@@ -111,12 +111,15 @@ button {
 
 .control-button {
   color: white;
-  background-color: gray;
+  background-color: transparent;
   padding: 1vh;
-  border-radius: 2vh;
-  font-size: 10vh; }
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
   @media all and (max-aspect-ratio: 1 / 1) {
     .control-button {
       padding: 1vw;
-      border-radius: 2vw;
-      font-size: 10vw; } }
+      font-size: 10vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
