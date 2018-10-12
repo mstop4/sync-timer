@@ -12,12 +12,12 @@ $path: cubic-bezier(0.175, 0.885, 0.32, 1.275)
     transform: translateY(-$displacement)
   to   
     color: rgba(255, 255, 255, 1)
-    transform: translateY(0vw)
+    transform: translateY(0)
 
 @keyframes exit
   from 
     color: rgba(255, 255, 255, 1)
-    transform: translateY(0vw)
+    transform: translateY(0)
   to   
     color: rgba(255, 255, 255, 0)
     transform: translateY($displacement)
@@ -36,9 +36,13 @@ $path: cubic-bezier(0.175, 0.885, 0.32, 1.275)
 
 #info
   margin: 1vh 2vh
-  font-size: 4vw
+  font-size: 3vw
   display: flex
   justify-content: space-between
+
+  @media all and (max-aspect-ratio: 1/1)
+    margin: 1vw 2vw
+    font-size: 3vh
 
 
 /* Display */
@@ -100,3 +104,10 @@ $path: cubic-bezier(0.175, 0.885, 0.32, 1.275)
   color: white
   background-color: gray
   padding: 1vh
+  border-radius: 2vh
+  font-size: 10vh
+
+  @media all and (max-aspect-ratio: 1/1)
+    padding: 1vw
+    border-radius: 2vw
+    font-size: 10vw

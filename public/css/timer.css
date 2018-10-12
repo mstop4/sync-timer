@@ -24,12 +24,12 @@ button {
     transform: translateY(-5vw); }
   to {
     color: white;
-    transform: translateY(0vw); } }
+    transform: translateY(0); } }
 
 @keyframes exit {
   from {
     color: white;
-    transform: translateY(0vw); }
+    transform: translateY(0); }
   to {
     color: rgba(255, 255, 255, 0);
     transform: translateY(5vw); } }
@@ -47,9 +47,13 @@ button {
 
 #info {
   margin: 1vh 2vh;
-  font-size: 4vw;
+  font-size: 3vw;
   display: flex;
   justify-content: space-between; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    #info {
+      margin: 1vw 2vw;
+      font-size: 3vh; } }
 
 /* Display */
 #timer-display {
@@ -108,4 +112,11 @@ button {
 .control-button {
   color: white;
   background-color: gray;
-  padding: 1vh; }
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .control-button {
+      padding: 1vw;
+      border-radius: 2vw;
+      font-size: 10vw; } }
