@@ -19,6 +19,7 @@ module.exports = (http, roomManager) => {
     logExceptInTest(`User ${socket.id} connected`);
 
     // Events
+
     socket.on('set up', (timerId) => {
       // A failsafe to make sure a valid Timer Id is obtained at this point.
       // Being passed an invalid timerId (undefined, null) should not happen.
@@ -30,6 +31,10 @@ module.exports = (http, roomManager) => {
         logExceptInTest(`User ${socket.id} registered`);
         io.to(tId).emit('new user joining', { clientId: socket.id });
         socket.emit('done set up', { timerId: tId });
+
+        rm.timerList[tId].timerRunning 
+        ? io.to(tId).emit('timer started')
+        : io.to(tId).emit('timer stopped'); 
       });
     });
   
@@ -41,11 +46,13 @@ module.exports = (http, roomManager) => {
     socket.on('start timer', (timerId) => {
       logExceptInTest(`User ${socket.id} started timer ${timerId}`);
       rm.timerList[timerId].startTimer();
+      io.to(timerId).emit('timer started');
     });
 
     socket.on('stop timer', (timerId) => {
       logExceptInTest(`User ${socket.id} stopped timer ${timerId}`);
       rm.timerList[timerId].stopTimer();
+      io.to(timerId).emit('timer stopped');
     });
 
     socket.on('disconnect', () => {

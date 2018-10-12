@@ -87,14 +87,6 @@ class Timer {
       seconds: padDisplay(this.seconds, 2)
     };
   }
-
-  get clients() {
-    return this._clients;
-  }
-
-  set clients(newClients) {
-    this._clients = newClients;
-  }
 }
 
 module.exports = Timer;
