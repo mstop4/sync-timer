@@ -16,6 +16,10 @@ An online stopwatch service. Multiple clients can display a synchronized timer b
 
 🤔 "Gee, I wish there was a way an easier way to synchronize these two timers..."
 
+## Demo
+
+https://sync-timer.herokuapp.com/
+
 ## Stack
 
 * Node 8.12.0
