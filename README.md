@@ -18,7 +18,7 @@ An online stopwatch service. Multiple clients can display a synchronized timer b
 
 ## Demo
 
-Main: https://sync-timer.herokuapp.com
+Main: https://sync-timer.herokuapp.com  
 Mirror: https://sync-timer.azurewebsites.net
 
 ## Stack
