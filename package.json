@@ -1,6 +1,6 @@
 {
   "name": "sync-timer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Sync Timer",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "scss:watch": "node-sass --watch --recursive ./stylesheets -o ./public/css"
   },
   "engines": {
-    "node": "8.12.0"
+    "node": "8.12.0 8.11.2"
   },
   "author": "M.S.T.O.P.",
   "license": "MIT",
