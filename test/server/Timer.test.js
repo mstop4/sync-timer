@@ -47,7 +47,7 @@ describe('Timer', () => {
 
   it('should update the timer', async () => {
     const secondsThen = timer.seconds;
-    await sleep(1000);
+    await sleep(1500);
     timer.updateTimer();
     const secondsNow = timer.seconds;
 
