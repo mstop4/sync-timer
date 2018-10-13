@@ -9,15 +9,114 @@ body {
 
 button {
   color: white;
-  background-color: gray;
-  padding: 1vh;
-  border-radius: 2vh;
-  font-size: 6.5vh;
-  margin: 0.5vh 0; }
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
   button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
     outline: none; }
 
-/* Animation Deets */
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
+  button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none; }
+
+@keyframes spinner-pending {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(180); } }
+
+.info-container {
+  width: 100%; }
+
+.info {
+  margin: 2vh 2vh;
+  font-size: 3vw;
+  display: flex;
+  justify-content: space-between; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .info {
+      margin: 2vw 2vw;
+      font-size: 3vh; } }
+
+#running-state {
+  animation-name: spinner-pending;
+  animation-duration: 1s; }
+
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
+  button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none; }
+
 @keyframes enter {
   from {
     color: rgba(255, 255, 255, 0);
@@ -34,28 +133,6 @@ button {
     color: rgba(255, 255, 255, 0);
     transform: translateY(5vw); } }
 
-/* ------ */
-#timer-ui {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%; }
-
-#info-container {
-  width: 100%; }
-
-#info {
-  margin: 1vh 2vh;
-  font-size: 3vw;
-  display: flex;
-  justify-content: space-between; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    #info {
-      margin: 1vw 2vw;
-      font-size: 3vh; } }
-
-/* Display */
 #timer-display {
   display: flex;
   justify-content: center;
@@ -63,7 +140,6 @@ button {
   font-size: 20vw;
   font-weight: 400; }
 
-/* Digits */
 .digit {
   width: 13vw; }
   .digit .front {
@@ -102,21 +178,53 @@ button {
   -ms-user-select: none;
   user-select: none; }
 
-/* Buttons */
-#buttons {
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
+  button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none; }
+
+.buttons {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   margin: 2vh; }
 
 .control-button {
-  color: white;
-  background-color: gray;
-  padding: 1vh;
-  border-radius: 2vh;
-  font-size: 10vh; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    .control-button {
-      padding: 1vw;
-      border-radius: 2vw;
-      font-size: 10vw; } }
+  font-size: 8vh;
+  padding: 3vh;
+  width: 14vh;
+  height: 14vh; }
+
+.timer-ui {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; }

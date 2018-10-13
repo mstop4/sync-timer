@@ -13,17 +13,22 @@ socket.on('connect', function() {
   });
 
   socket.on('update timer', function(time) {
-    updateDisplay(time.hours, time.minutes, time.seconds);
+    if (time !== null) {
+      updateDisplay(time.hours, time.minutes, time.seconds);
+    }
   }); 
 
-  socket.on('timer started', function(time) {
-    statusEl.innerText = 'Running';
+  socket.on('timer started', function() {
+    statusEl.classList.remove('fa-stop');
+    statusEl.classList.remove('fa-spinner');
+    statusEl.classList.add('fa-play');
   }); 
 
-  socket.on('timer stopped', function(time) {
-    statusEl.innerText = 'Stopped';
+  socket.on('timer stopped', function() {
+    statusEl.classList.remove('fa-play');
+    statusEl.classList.remove('fa-spinner');
+    statusEl.classList.add('fa-stop');
   }); 
-
 
   socket.on('new user joining', function(data) {
     if (data.clientId !== socket.id) {

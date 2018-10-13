@@ -1,113 +1,11 @@
 @import partials/common
+@import partials/timer/info
+@import partials/timer/display
+@import partials/timer/controls
 
-/* Animation Deets */
-
-$animation-length: 0.25s;
-$displacement: 5vw
-$path: cubic-bezier(0.175, 0.885, 0.32, 1.275)
-
-@keyframes enter
-  from 
-    color: rgba(255, 255, 255, 0)
-    transform: translateY(-$displacement)
-  to   
-    color: rgba(255, 255, 255, 1)
-    transform: translateY(0)
-
-@keyframes exit
-  from 
-    color: rgba(255, 255, 255, 1)
-    transform: translateY(0)
-  to   
-    color: rgba(255, 255, 255, 0)
-    transform: translateY($displacement)
-  
-/* ------ */
-
-#timer-ui 
+.timer-ui 
   display: flex
   flex-direction: column
   justify-content: space-between
   align-items: center
   height: 100%
-
-#info-container
-  width: 100%
-
-#info
-  margin: 1vh 2vh
-  font-size: 3vw
-  display: flex
-  justify-content: space-between
-
-  @media all and (max-aspect-ratio: 1/1)
-    margin: 1vw 2vw
-    font-size: 3vh
-
-
-/* Display */
-
-#timer-display 
-  display: flex
-  justify-content: center
-  width: 100%
-  font-size: 20vw
-  font-weight: 400
-
-/* Digits */
-
-.digit 
-  width: 13vw
-
-  .front
-    position: absolute
-    text-align: center
-    vertical-align: middle
-    color: rgba(255, 255, 255, 1)
-    +unselectable
-
-  .back
-    position: absolute
-    text-align: center
-    vertical-align: middle
-    color: rgba(255, 255, 255, 0)
-    +unselectable
-
-
-  .animate-in
-    animation-name: enter
-    animation-duration: $animation-length
-    animation-timing-function: $path
-
-  .animate-out
-    animation-name: exit
-    animation-duration: $animation-length
-    animation-timing-function: $path
-
-
-.separator 
-  text-align: center
-  vertical-align: middle
-  width: 8vw
-  +unselectable
-
-
-/* Buttons */
-
-#buttons 
-  width: 100%
-  display: flex
-  justify-content: space-evenly
-  margin: 2vh
-
-.control-button 
-  color: white
-  background-color: gray
-  padding: 1vh
-  border-radius: 2vh
-  font-size: 10vh
-
-  @media all and (max-aspect-ratio: 1/1)
-    padding: 1vw
-    border-radius: 2vw
-    font-size: 10vw

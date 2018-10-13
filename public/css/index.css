@@ -9,19 +9,101 @@ body {
 
 button {
   color: white;
-  background-color: gray;
-  padding: 1vh;
-  border-radius: 2vh;
-  font-size: 6.5vh;
-  margin: 0.5vh 0; }
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
   button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
     outline: none; }
+
+h1 {
+  font-size: 12vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    h1 {
+      font-size: 12vw; } }
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%; }
+
+.index-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center; }
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 .menu-field {
   color: white;
-  font-size: 2em;
-  margin: 0.5em 0.5em;
+  font-size: 10vh;
+  width: 75vh;
+  margin: 1vh;
   background-color: transparent;
-  border-width: 0 0 1px 0; }
+  border-width: 0 0 1px 0;
+  text-align: center; }
+  .menu-field::-webkit-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-webkit-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field::-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-moz-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-ms-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-ms-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-moz-placeholder {
+        font-size: 5vw; } }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .menu-field {
+      font-size: 10vw;
+      width: 75vw;
+      margin: 1vw; } }
   .menu-field:focus {
     outline: none; }
+
+.or {
+  font-size: 7vh;
+  margin: 8vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .or {
+      font-size: 7vw;
+      margin: 8vw; } }
+
+.menu-button {
+  font-size: 8vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .menu-button {
+      font-size: 8vw; } }
+
+#new-timer {
+  margin: 0 0 5vh 0; }

@@ -5,12 +5,14 @@ html
     link(rel="stylesheet", type="text/css", href="/css/index.css")
     
   body
-    h1 Sync Timer
-    div
-      button#new-timer.menu-button(onclick="window.location.href='timer/new';") Create New Timer
-
-    div
-      button#join-timer.menu-button(onclick="gotoTimer();") Join Timer
-      input#timer-id-field.menu-field(type="text")
+    div.index-container
+      h1 Sync Timer
+        
+      div.index-form
+        div.join-form
+          input#timer-id-field.menu-field(type="text" placeholder="Timer ID")
+          button#join-timer.menu-button(onclick="gotoTimer();") Join Timer
+        p.or OR
+        button#new-timer.menu-button(onclick="window.location.href='timer/new';") Create Timer
 
   script(type="text/javascript", src="js/index.js")

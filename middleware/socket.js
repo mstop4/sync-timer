@@ -39,8 +39,13 @@ module.exports = (http, roomManager) => {
     });
   
     socket.on('get time', (timerId) => {
-      logExceptInTest(`User ${socket.id} wants to know the time on Timer ${timerId}`);
-      socket.emit('update timer', rm.timerList[timerId].time);
+      if (rm.timerExists(timerId)) {
+        logExceptInTest(`User ${socket.id} is querying Timer ${timerId}`);
+        socket.emit('update timer', rm.timerList[timerId].time);
+      } else {
+        logExceptInTest(`User ${socket.id} - Timer ${timerId} does not exist`);
+        socket.emit('update timer', null);
+      }
     });
 
     socket.on('start timer', (timerId) => {
