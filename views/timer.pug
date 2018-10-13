@@ -6,9 +6,13 @@ html
   
   body(onload="getDisplayElements()")
     div.timer-ui
+
       div.info-container
-        div.info 
-          span #[i.fas.fa-clock]&nbsp;#[span#timerId=myTimerId]
+        div.info
+          div
+            i.fas.fa-clock &nbsp;
+            span#timerId=myTimerId
+            <!-- div.id-tip Share this ID to invite others to watch this timer. -->
           i#running-state.fas.fa-spinner
 
       div#timer-display 

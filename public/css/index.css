@@ -30,18 +30,37 @@ button {
     background-color: rgba(255, 255, 255, 0.25);
     outline: none; }
 
-h1 {
-  font-size: 12vh; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    h1 {
-      font-size: 12vw; } }
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
 
-.index-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%; }
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25); }
+  button:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none; }
 
 .index-form {
   display: flex;
@@ -107,3 +126,16 @@ h1 {
 
 #new-timer {
   margin: 0 0 5vh 0; }
+
+h1 {
+  font-size: 12vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    h1 {
+      font-size: 12vw; } }
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%; }
