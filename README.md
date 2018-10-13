@@ -16,10 +16,29 @@ An online stopwatch service. Multiple clients can display a synchronized timer b
 
 🤔 "Gee, I wish there was a way an easier way to synchronize these two timers..."
 
-## Demos
+## Live Demos
 
 [![Heroku](https://img.shields.io/website-up-down-green-red/https/sync-timer.herokuapp.com.svg?label=) https://sync-timer.herokuapp.com](https://sync-timer.herokuapp.com)  
 [![Azure](https://img.shields.io/website-up-down-green-red/https/sync-timer.azurewebsites.net.svg?label=) https://sync-timer.azurewebsites.net](https://sync-timer.azurewebsites.net)  
+
+## Run Locally
+
+
+1) Clone this repo to your local machine.
+
+2) Run these commands:
+
+```
+npm install
+npm run sass
+npm start
+```
+
+3) Go to `http://localhost:3000` in your browser.
+
+## Testing
+
+Run `npm test` to run all tests.
 
 ## Stack
 
