@@ -5,9 +5,9 @@ html
     link(rel="stylesheet", type="text/css", href="/css/timer.css")
   
   body(onload="getDisplayElements()")
-    div#timer-ui
-      div#info-container
-        div#info 
+    div.timer-ui
+      div.info-container
+        div.info 
           span #[i.fas.fa-clock]&nbsp;#[span#timerId=myTimerId]
           i#running-state.fas.fa-spinner
 
@@ -33,7 +33,7 @@ html
           div.front 0
           div.back 8
 
-      div#buttons
+      div.buttons
         button#start-button.control-button(onclick="startTimer()")
           i.fas.fa-play
         button#stop-button.control-button(onclick="stopTimer()")
