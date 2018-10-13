@@ -16,10 +16,10 @@ An online stopwatch service. Multiple clients can display a synchronized timer b
 
 🤔 "Gee, I wish there was a way an easier way to synchronize these two timers..."
 
-## Demo
+## Demos
 
-Main: https://sync-timer.herokuapp.com  
-Mirror: https://sync-timer.azurewebsites.net
+[![Heroku](https://img.shields.io/website-up-down-green-red/https/sync-timer.herokuapp.com.svg?label=) https://sync-timer.herokuapp.com](https://sync-timer.herokuapp.com)
+[![Azure](https://img.shields.io/website-up-down-green-red/https/sync-timer.azurewebsites.net.svg?label=) https://sync-timer.azurewebsites.net](https://sync-timer.azurewebsites.net)
 
 ## Stack
 
