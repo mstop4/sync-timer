@@ -21,12 +21,14 @@ socket.on('connect', function() {
   socket.on('timer started', function() {
     statusEl.classList.remove('fa-stop');
     statusEl.classList.remove('fa-spinner');
+    statusEl.classList.remove('fa-spin');
     statusEl.classList.add('fa-play');
   }); 
 
   socket.on('timer stopped', function() {
     statusEl.classList.remove('fa-play');
     statusEl.classList.remove('fa-spinner');
+    statusEl.classList.remove('fa-spin');
     statusEl.classList.add('fa-stop');
   }); 
 

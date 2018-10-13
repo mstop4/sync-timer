@@ -8,8 +8,8 @@
     "dev": "NODE_ENV=dev nodemon app.js -e js",
     "test": "NODE_ENV=test mocha",
     "heroku-postbuild": "npm run sass",
-    "sass": "node-sass ./stylesheets -o ./public/css",
-    "sass:watch": "node-sass --watch --recursive ./stylesheets -o ./public/css"
+    "sass": "node-sass ./stylesheets -o ./public/css --output-style nested",
+    "sass:watch": "node-sass --watch --recursive ./stylesheets -o ./public/css --output-style nested"
   },
   "engines": {
     "node": "<9.0.0 >=8.11.2"
