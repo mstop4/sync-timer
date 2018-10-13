@@ -13,7 +13,9 @@ socket.on('connect', function() {
   });
 
   socket.on('update timer', function(time) {
-    updateDisplay(time.hours, time.minutes, time.seconds);
+    if (time !== null) {
+      updateDisplay(time.hours, time.minutes, time.seconds);
+    }
   }); 
 
   socket.on('timer started', function() {
