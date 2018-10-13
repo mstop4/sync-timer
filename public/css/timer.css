@@ -17,7 +17,67 @@ button {
   button:focus {
     outline: none; }
 
-/* Animation Deets */
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: gray;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 6.5vh;
+  margin: 0.5vh 0; }
+  button:focus {
+    outline: none; }
+
+@keyframes spinner-pending {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(180); } }
+
+#info-container {
+  width: 100%; }
+
+#info {
+  margin: 2vh 2vh;
+  font-size: 3vw;
+  display: flex;
+  justify-content: space-between; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    #info {
+      margin: 2vw 2vw;
+      font-size: 3vh; } }
+
+#running-state {
+  animation-name: spinner-pending;
+  animation-duration: 1s; }
+
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: gray;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 6.5vh;
+  margin: 0.5vh 0; }
+  button:focus {
+    outline: none; }
+
 @keyframes enter {
   from {
     color: rgba(255, 255, 255, 0);
@@ -34,28 +94,6 @@ button {
     color: rgba(255, 255, 255, 0);
     transform: translateY(5vw); } }
 
-/* ------ */
-#timer-ui {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%; }
-
-#info-container {
-  width: 100%; }
-
-#info {
-  margin: 1vh 2vh;
-  font-size: 3vw;
-  display: flex;
-  justify-content: space-between; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    #info {
-      margin: 1vw 2vw;
-      font-size: 3vh; } }
-
-/* Display */
 #timer-display {
   display: flex;
   justify-content: center;
@@ -63,7 +101,6 @@ button {
   font-size: 20vw;
   font-weight: 400; }
 
-/* Digits */
 .digit {
   width: 13vw; }
   .digit .front {
@@ -102,7 +139,25 @@ button {
   -ms-user-select: none;
   user-select: none; }
 
-/* Buttons */
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel Decorative", "cursive"; }
+
+button {
+  color: white;
+  background-color: gray;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-size: 6.5vh;
+  margin: 0.5vh 0; }
+  button:focus {
+    outline: none; }
+
 #buttons {
   width: 100%;
   display: flex;
@@ -123,3 +178,10 @@ button {
       font-size: 10vw;
       min-width: 10vw;
       min-height: 10vw; } }
+
+#timer-ui {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; }
