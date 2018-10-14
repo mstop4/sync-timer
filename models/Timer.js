@@ -11,7 +11,8 @@ class Timer {
     this.seconds = 0;
     this.timerRunning = TIMERSTATE.STOPPED;
     this.timerLoop = null;
-    this.startTime = null;
+    this.startTime = 0;
+    this.elapsedTime = 0;
     this.clients = [];
     this.updateCallback = updateCallback;
     this.id = id;
@@ -23,28 +24,26 @@ class Timer {
 
   startTimer() {
     if (this.timerRunning !== TIMERSTATE.RUNNING) {
-      this.timerRunning = TIMERSTATE.RUNNING;
       this.startTime = Date.now();
       this.timerLoop = setInterval(this.updateTimer, timerTickInterval);
+      this.timerRunning = TIMERSTATE.RUNNING;
     }
   }
   
   stopTimer() {
     if (this.timerRunning === TIMERSTATE.RUNNING) {
+      this.elapsedTime += Date.now() - this.startTime;
       this.timerRunning = TIMERSTATE.SUSPENDED;
+
       if (this.timerLoop !== undefined && this.timerLoop._repeat) {
         clearInterval(this.timerLoop);
       }
     }
   }
 
-  resumeTimer() {
-
-  }
-
   updateTimer() {
     let now = Date.now();
-    let timeDiff = now - this.startTime; // in milliseconds
+    let timeDiff = now - this.startTime + this.elapsedTime; // in milliseconds
   
     let timeDiffInSeconds = timeDiff / 1000;
     this.hours = Math.floor(timeDiffInSeconds / 3600);
@@ -60,6 +59,8 @@ class Timer {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
+    this.elapsedTime = 0;
+    this.timerRunning = TIMERSTATE.STOPPED;
 
     if (this.updateCallback) {
       this.updateCallback(this);

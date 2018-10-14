@@ -2,6 +2,7 @@
 
 const Timer = require('../../models/Timer');
 const { sleep } = require('../../helpers');
+const TIMERSTATE = require('../../helpers/timerStates');
 let timer = null;
 
 const clientId = ['test', 'foo'];
@@ -12,10 +13,11 @@ describe('Timer', () => {
     timer = new Timer(null);
   });
 
-  it('should have the timer start at 00:00:00', () =>{
+  it('should have the timer start at initial state', () =>{
     expect(timer.hours).to.eql(0);
     expect(timer.minutes).to.eql(0);
     expect(timer.seconds).to.eql(0);
+    expect(timer.timerRunning).to.eql(TIMERSTATE.STOPPED);
   });
 
   it('should reset the timer', () => {
@@ -28,7 +30,7 @@ describe('Timer', () => {
   it('should start the timer', () => {
     timer.startTimer();
 
-    expect(timer.timerRunning).to.be.true;
+    expect(timer.timerRunning).to.eql(TIMERSTATE.RUNNING);
     expect(timer.timerLoop).to.not.be.null;
   });
 
@@ -39,7 +41,7 @@ describe('Timer', () => {
       await sleep(1000);
       timer.stopTimer();
 
-      expect(timer.timerRunning).to.be.false;
+      expect(timer.timerRunning).to.eql(TIMERSTATE.SUSPENDED);
       expect(timer.timerLoop._repeat).to.be.null;
       done();
     })();
