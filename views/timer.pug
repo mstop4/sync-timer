@@ -18,30 +18,30 @@ html
       div#timer-display 
         div#hours-tens.digit
           div.front 0
-          div.back 8
+          div.back 0
         div#hours-ones.digit 
           div.front 0
-          div.back 8
+          div.back 0
         div.separator :
         div#minutes-tens.digit 
           div.front 0
-          div.back 8
+          div.back 0
         div#minutes-ones.digit 
           div.front 0
-          div.back 8
+          div.back 0
         div.separator :
         div#seconds-tens.digit
           div.front 0
-          div.back 8
+          div.back 0
         div#seconds-ones.digit
           div.front 0
-          div.back 8
+          div.back 0
 
       div.buttons
         button#start-button.control-button(onclick="startTimer()")
           i.fas.fa-play
         button#stop-button.control-button(onclick="stopTimer()")
-          i.fas.fa-stop
+          i.fas.fa-pause
     
   script(type="text/javascript", src="/socket.io/socket.io.js")
   script.

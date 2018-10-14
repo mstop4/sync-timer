@@ -19,7 +19,7 @@ socket.on('connect', function() {
   }); 
 
   socket.on('timer started', function() {
-    statusEl.classList.remove('fa-stop');
+    statusEl.classList.remove('fa-pause');
     statusEl.classList.remove('fa-spinner');
     statusEl.classList.remove('fa-spin');
     statusEl.classList.remove('fa-exclamation-triangle');
@@ -31,7 +31,7 @@ socket.on('connect', function() {
     statusEl.classList.remove('fa-spinner');
     statusEl.classList.remove('fa-spin');
     statusEl.classList.remove('fa-exclamation-triangle');
-    statusEl.classList.add('fa-stop');
+    statusEl.classList.add('fa-pause');
   });
   
   socket.on('timer error', function() {
@@ -69,6 +69,6 @@ var showError = function() {
   statusEl.classList.remove('fa-play');
   statusEl.classList.remove('fa-spinner');
   statusEl.classList.remove('fa-spin');
-  statusEl.classList.remove('fa-stop');
+  statusEl.classList.remove('fa-pause');
   statusEl.classList.add('fa-exclamation-triangle');
 }
