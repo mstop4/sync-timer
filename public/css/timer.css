@@ -148,7 +148,8 @@ button {
   justify-content: center;
   width: 100%;
   font-size: 20vw;
-  font-weight: 400; }
+  font-weight: 400;
+  font-family: "Cinzel Decorative", "cursive"; }
 
 .digit {
   width: 13vw; }
@@ -242,5 +243,4 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-  font-family: "Cinzel Decorative", "cursive"; }
+  height: 100%; }
