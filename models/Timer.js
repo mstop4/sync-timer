@@ -1,14 +1,15 @@
 'use strict';
 
-const timerTickInterval = 200;
 const { padDisplay } = require('../helpers');
+const TIMERSTATE = require('../helpers/timerStates');
+const timerTickInterval = 200;
 
 class Timer {
   constructor(updateCallback, id) {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
-    this.timerRunning = false;
+    this.timerRunning = TIMERSTATE.STOPPED;
     this.timerLoop = null;
     this.startTime = null;
     this.clients = [];
@@ -21,21 +22,24 @@ class Timer {
   }
 
   startTimer() {
-    if (!this.timerRunning) {
-      this.timerRunning = true;
-      this.resetTimer();
+    if (this.timerRunning !== TIMERSTATE.RUNNING) {
+      this.timerRunning = TIMERSTATE.RUNNING;
       this.startTime = Date.now();
       this.timerLoop = setInterval(this.updateTimer, timerTickInterval);
     }
   }
   
   stopTimer() {
-    if (this.timerRunning) {
-      this.timerRunning = false;
+    if (this.timerRunning === TIMERSTATE.RUNNING) {
+      this.timerRunning = TIMERSTATE.SUSPENDED;
       if (this.timerLoop !== undefined && this.timerLoop._repeat) {
         clearInterval(this.timerLoop);
       }
     }
+  }
+
+  resumeTimer() {
+
   }
 
   updateTimer() {

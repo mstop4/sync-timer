@@ -1,6 +1,7 @@
 'use strict';
 
 const { logExceptInTest } = require('../helpers');
+const TIMERSTATE = require('../helpers/timerStates');
 
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
@@ -32,9 +33,20 @@ module.exports = (http, roomManager) => {
         io.to(tId).emit('new user joining', { clientId: socket.id });
         socket.emit('done set up', { timerId: tId });
 
-        rm.timerList[tId].timerRunning 
-        ? io.to(tId).emit('timer started')
-        : io.to(tId).emit('timer stopped'); 
+        switch(rm.timerList[tId].timerRunning) {
+
+          case TIMERSTATE.RUNNING:
+            io.to(tId).emit('timer started');
+            break;
+
+          case TIMERSTATE.STOPPED:
+          case TIMERSTATE.SUSPENDED:
+            io.to(tId).emit('timer stopped'); 
+            break;
+
+          default:
+            io.to(tId).emit('timer error');
+        }
       });
     });
   
