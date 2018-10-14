@@ -62,6 +62,10 @@ class Timer {
     this.elapsedTime = 0;
     this.timerRunning = TIMERSTATE.STOPPED;
 
+    if (this.timerLoop !== undefined && this.timerLoop._repeat) {
+      clearInterval(this.timerLoop);
+    }
+
     if (this.updateCallback) {
       this.updateCallback(this);
     }

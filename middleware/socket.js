@@ -6,14 +6,9 @@ const TIMERSTATE = require('../helpers/timerStates');
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
   const rm = roomManager;
+  const broadcastUpdate = (timer) => io.to(timer.id).emit('update timer', timer.time);
 
-  const broadcastUpdate = ((timer) => {
-    const time = timer.time;
-
-    io.to(timer.id).emit('update timer', time);
-  }).bind(this);
-
-  rm.updateCallback = broadcastUpdate;
+  rm.updateCallback = broadcastUpdate.bind(this);
 
   // Socket Logic
   io.on('connection', (socket) => {
@@ -69,6 +64,12 @@ module.exports = (http, roomManager) => {
     socket.on('stop timer', (timerId) => {
       logExceptInTest(`User ${socket.id} stopped timer ${timerId}`);
       rm.timerList[timerId].stopTimer();
+      io.to(timerId).emit('timer stopped');
+    });
+
+    socket.on('reset timer', (timerId) => {
+      logExceptInTest(`User ${socket.id} reset timer ${timerId}`);
+      rm.timerList[timerId].resetTimer();
       io.to(timerId).emit('timer stopped');
     });
 

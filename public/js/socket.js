@@ -61,6 +61,12 @@ var sendStopSignal = function() {
   }
 };
 
+var sendResetSignal = function() {
+  if (socket.connected && myTimerId !== null) {
+    socket.emit('reset timer', myTimerId);
+  }
+}
+
 var initialize = function() {
   socket.emit('set up', myTimerId);
 }
