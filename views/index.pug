@@ -11,8 +11,8 @@ html
       div.index-form
         div.join-form
           input#timer-id-field.menu-field(type="text" placeholder="Timer ID")
-          button#join-timer.menu-button(onclick="gotoTimer();") Join Timer
+          button#join-timer.menu-button.active(onclick="gotoTimer();") Join Timer
         p.or OR
-        button#new-timer.menu-button(onclick="window.location.href='timer/new';") Create Timer
+        button#new-timer.menu-button.active(onclick="window.location.href='timer/new';") Create Timer
 
   script(type="text/javascript", src="js/index.js")
