@@ -29,6 +29,10 @@ var stopTimer = function() {
   sendStopSignal();
 };
 
+var resetTimer = function() {
+  sendResetSignal();
+}
+
 var updateDisplay = function(hours, minutes, seconds) {
   if (displayReady) {
     if (curHour !== hours) {

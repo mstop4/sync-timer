@@ -20,7 +20,6 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "node-sass": "^4.9.3",
     "pug": "^2.0.3",
     "socket.io": "^2.1.1",
     "uniqid": "^5.0.3"
@@ -29,6 +28,7 @@
     "chai": "^4.1.2",
     "jsdom": "^12.0.0",
     "mocha": "^5.2.0",
+    "node-sass": "^4.9.3",
     "nodemon": "^1.18.4",
     "puppeteer": "^1.8.0",
     "socket.io-client": "^2.1.1"
