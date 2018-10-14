@@ -22,6 +22,7 @@ socket.on('connect', function() {
     statusEl.classList.remove('fa-stop');
     statusEl.classList.remove('fa-spinner');
     statusEl.classList.remove('fa-spin');
+    statusEl.classList.remove('fa-exclamation-triangle');
     statusEl.classList.add('fa-play');
   }); 
 
@@ -29,6 +30,7 @@ socket.on('connect', function() {
     statusEl.classList.remove('fa-play');
     statusEl.classList.remove('fa-spinner');
     statusEl.classList.remove('fa-spin');
+    statusEl.classList.remove('fa-exclamation-triangle');
     statusEl.classList.add('fa-stop');
   }); 
 
@@ -36,6 +38,14 @@ socket.on('connect', function() {
     if (data.clientId !== socket.id) {
       console.log('User ' + data.clientId + 'has joined in.');
     };
+  });
+
+  socket.on('disconnect', function(data) {
+    statusEl.classList.remove('fa-play');
+    statusEl.classList.remove('fa-spinner');
+    statusEl.classList.remove('fa-spin');
+    statusEl.classList.remove('fa-stop');
+    statusEl.classList.add('fa-exclamation-triangle');
   });
 });
 
