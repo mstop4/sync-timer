@@ -17,6 +17,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -27,6 +28,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
@@ -50,6 +52,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -60,6 +63,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
@@ -80,7 +84,7 @@ button {
   color: white;
   font-size: 10vh;
   width: 75vh;
-  margin: 1vh;
+  margin: 2vh;
   background-color: transparent;
   border-width: 0 0 1px 0;
   text-align: center; }
@@ -114,11 +118,11 @@ button {
 
 .or {
   font-size: 7vh;
-  margin: 8vh; }
+  margin: 7vh; }
   @media all and (max-aspect-ratio: 1 / 1) {
     .or {
       font-size: 7vw;
-      margin: 8vw; } }
+      margin: svw; } }
 
 .menu-button {
   font-size: 8vh; }
@@ -130,6 +134,7 @@ button {
   margin: 0 0 5vh 0; }
 
 h1 {
+  margin: 0;
   font-size: 12vh;
   font-family: "Cinzel Decorative", "cursive"; }
   @media all and (max-aspect-ratio: 1 / 1) {

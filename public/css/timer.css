@@ -17,6 +17,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -27,6 +28,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
@@ -50,6 +52,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -60,6 +63,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
@@ -107,6 +111,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -117,6 +122,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
@@ -201,6 +207,7 @@ button {
   font-size: 10vh;
   min-width: 10vh;
   min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
@@ -211,6 +218,7 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }
   button:focus {
     outline: none; }
