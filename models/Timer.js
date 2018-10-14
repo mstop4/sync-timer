@@ -10,7 +10,7 @@ class Timer {
     this.minutes = 0;
     this.seconds = 0;
     this.timerRunning = TIMERSTATE.STOPPED;
-    this.timerLoop = null;
+    this.timerLoop = undefined;
     this.startTime = 0;
     this.elapsedTime = 0;
     this.clients = [];

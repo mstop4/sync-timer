@@ -20,13 +20,6 @@ describe('Timer', () => {
     expect(timer.timerRunning).to.eql(TIMERSTATE.STOPPED);
   });
 
-  it('should reset the timer', () => {
-    timer.hours = 12;
-    timer.resetTimer();
-
-    expect(timer.hours).to.eql(0);
-  });
-
   it('should start the timer', () => {
     timer.startTimer();
 
@@ -43,8 +36,18 @@ describe('Timer', () => {
 
       expect(timer.timerRunning).to.eql(TIMERSTATE.SUSPENDED);
       expect(timer.timerLoop._repeat).to.be.null;
+      expect(timer.elapsedTime).to.be.above(0);
       done();
     })();
+  });
+
+  it('should reset the timer', () => {
+    timer.hours = 12;
+    timer.resetTimer();
+
+    expect(timer.hours).to.eql(0);
+    expect(timer.timerRunning).to.eql(TIMERSTATE.STOPPED);
+    expect(timer.elapsedTime).to.eql(0);
   });
 
   it('should update the timer', async () => {
