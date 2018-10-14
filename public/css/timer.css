@@ -5,7 +5,7 @@ body {
   background-size: cover;
   background-position: left bottom;
   color: white;
-  font-family: "Cinzel Decorative", "cursive"; }
+  font-family: "Cinzel", "serif"; }
 
 button {
   color: white;
@@ -37,7 +37,7 @@ body {
   background-size: cover;
   background-position: left bottom;
   color: white;
-  font-family: "Cinzel Decorative", "cursive"; }
+  font-family: "Cinzel", "serif"; }
 
 button {
   color: white;
@@ -97,7 +97,7 @@ body {
   background-size: cover;
   background-position: left bottom;
   color: white;
-  font-family: "Cinzel Decorative", "cursive"; }
+  font-family: "Cinzel", "serif"; }
 
 button {
   color: white;
@@ -190,7 +190,7 @@ body {
   background-size: cover;
   background-position: left bottom;
   color: white;
-  font-family: "Cinzel Decorative", "cursive"; }
+  font-family: "Cinzel", "serif"; }
 
 button {
   color: white;
@@ -232,4 +232,5 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%; }
+  height: 100%;
+  font-family: "Cinzel Decorative", "cursive"; }
