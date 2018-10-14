@@ -1,11 +1,5 @@
 @import ../common
 
-@keyframes spinner-pending
-  from 
-    transform: rotate(0)
-  to   
-    transform: rotate(180)
-
 .info-container
   width: 100%
 
@@ -18,6 +12,17 @@
   @media all and (max-aspect-ratio: 1/1)
     margin: 2vw 2vw
     font-size: 3vh
+
+.id-tip
+  display: absolute
+  left: 20vw
+  width: 15vw
+  font-size: 1.5vw
+
+  @media all and (max-aspect-ratio: 1/1)
+    left: 20vh
+    width: 15vh
+    font-size: 1.5vh
 
 #running-state
   animation-name: spinner-pending

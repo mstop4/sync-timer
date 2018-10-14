@@ -6,10 +6,14 @@ html
   
   body(onload="getDisplayElements()")
     div.timer-ui
+
       div.info-container
-        div.info 
-          span #[i.fas.fa-clock]&nbsp;#[span#timerId=myTimerId]
-          i#running-state.fas.fa-spinner
+        div.info
+          div
+            i.fas.fa-hourglass-half &nbsp;
+            span#timerId=myTimerId
+            <!-- div.id-tip Share this ID to invite others to watch this timer. -->
+          i#running-state.fas.fa-spinner.fa-spin
 
       div#timer-display 
         div#hours-tens.digit
@@ -34,9 +38,9 @@ html
           div.back 8
 
       div.buttons
-        button#start-button.control-button(onclick="startTimer()")
+        button#start-button.control-button.active(onclick="startTimer()")
           i.fas.fa-play
-        button#stop-button.control-button(onclick="stopTimer()")
+        button#stop-button.control-button.active(onclick="stopTimer()")
           i.fas.fa-stop
     
   script(type="text/javascript", src="/socket.io/socket.io.js")

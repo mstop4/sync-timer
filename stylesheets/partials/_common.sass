@@ -3,6 +3,21 @@
   -moz-user-select: none     /* Firefox all */
   -ms-user-select: none      /* IE 10+ */
   user-select: none          /* Likely future */  
+
+$button-active-alpha: 0.25
+$button-inactive-alpha: 0.15
+
+@keyframes mouse-over
+  from 
+    background-color: rgba(255, 255, 255, $button-inactive-alpha)
+  to   
+    background-color: rgba(255, 255, 255, $button-active-alpha)
+
+@keyframes mouse-out
+  from 
+    background-color: rgba(255, 255, 255, $button-active-alpha)
+  to   
+    background-color: rgba(255, 255, 255, $button-inactive-alpha)
   
 body 
   background-color: rgba(0,0,0,0.75)
@@ -11,11 +26,11 @@ body
   background-size: cover
   background-position: left bottom
   color: white
-  font-family: "Cinzel Decorative", "cursive"
+  font-family: "Cinzel", "serif"
 
 button
   color: white
-  background-color: rgba(255, 255, 255, 0.15)
+  background-color: rgba(255, 255, 255, $button-inactive-alpha)
   margin: 0.5vh 0
   padding: 2vh
   border-radius: 4vh
@@ -30,10 +45,22 @@ button
     border-radius: 4vw
     min-width: 10vw
     min-height: 10vw
-  
+
   &:hover
-    background-color: rgba(255, 255, 255, 0.25)
+    background-color: rgba(255, 255, 255, $button-active-alpha)
+
+  &:not(hover)
+    background-color: rgba(255, 255, 255, $button-inactive-alpha)
 
   &:focus
-    background-color: rgba(255, 255, 255, 0.25)
+    background-color: rgba(255, 255, 255, $button-active-alpha)
     outline: none  
+
+.active
+  &:hover
+    animation-name: mouse-over
+    animation-duration: 0.5s
+
+  &:not(hover)
+    animation-name: mouse-out
+    animation-duration: 0.5s

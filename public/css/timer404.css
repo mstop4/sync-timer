@@ -1,3 +1,15 @@
+@keyframes mouse-over {
+  from {
+    background-color: rgba(255, 255, 255, 0.15); }
+  to {
+    background-color: rgba(255, 255, 255, 0.25); } }
+
+@keyframes mouse-out {
+  from {
+    background-color: rgba(255, 255, 255, 0.25); }
+  to {
+    background-color: rgba(255, 255, 255, 0.15); } }
+
 body {
   background-color: rgba(0, 0, 0, 0.75);
   background-blend-mode: multiply;
@@ -5,7 +17,7 @@ body {
   background-size: cover;
   background-position: left bottom;
   color: white;
-  font-family: "Cinzel Decorative", "cursive"; }
+  font-family: "Cinzel", "serif"; }
 
 button {
   color: white;
@@ -26,6 +38,16 @@ button {
       min-height: 10vw; } }
   button:hover {
     background-color: rgba(255, 255, 255, 0.25); }
+  button:not(hover) {
+    background-color: rgba(255, 255, 255, 0.15); }
   button:focus {
     background-color: rgba(255, 255, 255, 0.25);
     outline: none; }
+
+.active:hover {
+  animation-name: mouse-over;
+  animation-duration: 0.5s; }
+
+.active:not(hover) {
+  animation-name: mouse-out;
+  animation-duration: 0.5s; }
