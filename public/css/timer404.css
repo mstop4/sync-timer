@@ -1,15 +1,3 @@
-@keyframes mouse-over {
-  from {
-    background-color: rgba(255, 255, 255, 0.15); }
-  to {
-    background-color: rgba(255, 255, 255, 0.25); } }
-
-@keyframes mouse-out {
-  from {
-    background-color: rgba(255, 255, 255, 0.25); }
-  to {
-    background-color: rgba(255, 255, 255, 0.15); } }
-
 body {
   background-color: rgba(0, 0, 0, 0.75);
   background-blend-mode: multiply;
@@ -28,7 +16,8 @@ button {
   border: 0;
   font-size: 10vh;
   min-width: 10vh;
-  min-height: 10vh; }
+  min-height: 10vh;
+  transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
       padding: 2vw;
@@ -37,17 +26,7 @@ button {
       min-width: 10vw;
       min-height: 10vw; } }
   button:hover {
-    background-color: rgba(255, 255, 255, 0.25); }
-  button:not(hover) {
-    background-color: rgba(255, 255, 255, 0.15); }
-  button:focus {
     background-color: rgba(255, 255, 255, 0.25);
+    transition: background-color 0.5s; }
+  button:focus {
     outline: none; }
-
-.active:hover {
-  animation-name: mouse-over;
-  animation-duration: 0.5s; }
-
-.active:not(hover) {
-  animation-name: mouse-out;
-  animation-duration: 0.5s; }

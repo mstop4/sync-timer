@@ -7,17 +7,8 @@
 $button-active-alpha: 0.25
 $button-inactive-alpha: 0.15
 
-@keyframes mouse-over
-  from 
-    background-color: rgba(255, 255, 255, $button-inactive-alpha)
-  to   
-    background-color: rgba(255, 255, 255, $button-active-alpha)
-
-@keyframes mouse-out
-  from 
-    background-color: rgba(255, 255, 255, $button-active-alpha)
-  to   
-    background-color: rgba(255, 255, 255, $button-inactive-alpha)
+=mouse-over
+    transition: background-color 0.5s
   
 body 
   background-color: rgba(0,0,0,0.75)
@@ -38,6 +29,7 @@ button
   font-size: 10vh
   min-width: 10vh
   min-height: 10vh
+  +mouse-over
 
   @media all and (max-aspect-ratio: 1/1)
     padding: 2vw
@@ -48,19 +40,7 @@ button
 
   &:hover
     background-color: rgba(255, 255, 255, $button-active-alpha)
-
-  &:not(hover)
-    background-color: rgba(255, 255, 255, $button-inactive-alpha)
+    +mouse-over
 
   &:focus
-    background-color: rgba(255, 255, 255, $button-active-alpha)
-    outline: none  
-
-.active
-  &:hover
-    animation-name: mouse-over
-    animation-duration: 0.5s
-
-  &:not(hover)
-    animation-name: mouse-out
-    animation-duration: 0.5s
+    outline: none

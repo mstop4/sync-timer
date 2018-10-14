@@ -1,14 +1,35 @@
-@keyframes mouse-over {
-  from {
-    background-color: rgba(255, 255, 255, 0.15); }
-  to {
-    background-color: rgba(255, 255, 255, 0.25); } }
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: multiply;
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel", "serif"; }
 
-@keyframes mouse-out {
-  from {
-    background-color: rgba(255, 255, 255, 0.25); }
-  to {
-    background-color: rgba(255, 255, 255, 0.15); } }
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh;
+  transition: background-color 0.5s; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transition: background-color 0.5s; }
+  button:focus {
+    outline: none; }
 
 body {
   background-color: rgba(0, 0, 0, 0.75);
@@ -28,7 +49,8 @@ button {
   border: 0;
   font-size: 10vh;
   min-width: 10vh;
-  min-height: 10vh; }
+  min-height: 10vh;
+  transition: background-color 0.5s; }
   @media all and (max-aspect-ratio: 1 / 1) {
     button {
       padding: 2vw;
@@ -37,74 +59,10 @@ button {
       min-width: 10vw;
       min-height: 10vw; } }
   button:hover {
-    background-color: rgba(255, 255, 255, 0.25); }
-  button:not(hover) {
-    background-color: rgba(255, 255, 255, 0.15); }
-  button:focus {
     background-color: rgba(255, 255, 255, 0.25);
-    outline: none; }
-
-.active:hover {
-  animation-name: mouse-over;
-  animation-duration: 0.5s; }
-
-.active:not(hover) {
-  animation-name: mouse-out;
-  animation-duration: 0.5s; }
-
-@keyframes mouse-over {
-  from {
-    background-color: rgba(255, 255, 255, 0.15); }
-  to {
-    background-color: rgba(255, 255, 255, 0.25); } }
-
-@keyframes mouse-out {
-  from {
-    background-color: rgba(255, 255, 255, 0.25); }
-  to {
-    background-color: rgba(255, 255, 255, 0.15); } }
-
-body {
-  background-color: rgba(0, 0, 0, 0.75);
-  background-blend-mode: multiply;
-  background-image: url("../img/background2.jpg");
-  background-size: cover;
-  background-position: left bottom;
-  color: white;
-  font-family: "Cinzel", "serif"; }
-
-button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  margin: 0.5vh 0;
-  padding: 2vh;
-  border-radius: 4vh;
-  border: 0;
-  font-size: 10vh;
-  min-width: 10vh;
-  min-height: 10vh; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    button {
-      padding: 2vw;
-      font-size: 10vw;
-      border-radius: 4vw;
-      min-width: 10vw;
-      min-height: 10vw; } }
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.25); }
-  button:not(hover) {
-    background-color: rgba(255, 255, 255, 0.15); }
+    transition: background-color 0.5s; }
   button:focus {
-    background-color: rgba(255, 255, 255, 0.25);
     outline: none; }
-
-.active:hover {
-  animation-name: mouse-over;
-  animation-duration: 0.5s; }
-
-.active:not(hover) {
-  animation-name: mouse-out;
-  animation-duration: 0.5s; }
 
 .index-form {
   display: flex;
