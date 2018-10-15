@@ -9,6 +9,10 @@ const routes = (rm) => {
     res.redirect('/');
   });
 
+  router.post('/', (req, res) => {
+    res.redirect(`/timer/${req.body.timerId}`);
+  });
+
   router.get('/new', (req, res) => {
     const timerId = rm.createTimer();
     res.redirect(`/timer/${timerId}`);
