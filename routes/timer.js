@@ -5,7 +5,7 @@ const router = express.Router();
 
 const routes = (rm) => {
 
-  router.get('/', (req, res) => {
+  router.get('/', (res) => {
     res.redirect('/');
   });
 
@@ -18,7 +18,7 @@ const routes = (rm) => {
     res.redirect(`/timer/${timerId}`);
   });
 
-  router.get('/404', (req, res) => {
+  router.get('/404', (res) => {
     res.status(404).render('timer404');
   });
 
