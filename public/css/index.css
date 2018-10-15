@@ -69,14 +69,20 @@ button {
     outline: none; }
 
 .index-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -webkit-justify-content: space-evenly;
   justify-content: space-evenly;
   align-items: center; }
 
 .join-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center; }
 
@@ -142,8 +148,11 @@ h1 {
       font-size: 12vw; } }
 
 .index-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -webkit-justify-content: space-evenly;
   justify-content: space-evenly;
   align-items: center;
   height: 100%; }

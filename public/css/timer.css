@@ -74,7 +74,10 @@ button {
 .info {
   margin: 2vh 2vh;
   font-size: 3vw;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between; }
   @media all and (max-aspect-ratio: 1 / 1) {
     .info {
@@ -144,7 +147,10 @@ button {
     transform: translateY(5vw); } }
 
 #timer-display {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
   width: 100%;
   font-size: 20vw;
@@ -226,8 +232,11 @@ button {
 
 .buttons {
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
   margin: 2vh; }
 
 .control-button {
@@ -239,8 +248,11 @@ button {
   max-height: 14vh; }
 
 .timer-ui {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   height: 100%; }
