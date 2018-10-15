@@ -1,41 +1,4 @@
 body {
-  background-color: rgba(0, 0, 0, 0.75);
-  background-blend-mode: multiply;
-  background-image: url("../img/background2.jpg");
-  background-size: cover;
-  background-position: left bottom;
-  color: white;
-  font-family: "Cinzel", "serif"; }
-
-button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  margin: 0.5vh 0;
-  padding: 2vh;
-  border-radius: 4vh;
-  border: 0;
-  font-size: 10vh;
-  min-width: 10vh;
-  min-height: 10vh;
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    button {
-      padding: 2vw;
-      font-size: 10vw;
-      border-radius: 4vw;
-      min-width: 10vw;
-      min-height: 10vw; } }
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    -webkit-transition: background-color 0.5s;
-    transition: background-color 0.5s; }
-  button:focus {
-    outline: none; }
-
-body {
-  background-color: rgba(0, 0, 0, 0.75);
-  background-blend-mode: multiply;
   background-image: url("../img/background2.jpg");
   background-size: cover;
   background-position: left bottom;
@@ -74,7 +37,10 @@ button {
 .info {
   margin: 2vh 2vh;
   font-size: 3vw;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between; }
   @media all and (max-aspect-ratio: 1 / 1) {
     .info {
@@ -91,41 +57,6 @@ button {
       left: 20vh;
       width: 15vh;
       font-size: 1.5vh; } }
-
-body {
-  background-color: rgba(0, 0, 0, 0.75);
-  background-blend-mode: multiply;
-  background-image: url("../img/background2.jpg");
-  background-size: cover;
-  background-position: left bottom;
-  color: white;
-  font-family: "Cinzel", "serif"; }
-
-button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  margin: 0.5vh 0;
-  padding: 2vh;
-  border-radius: 4vh;
-  border: 0;
-  font-size: 10vh;
-  min-width: 10vh;
-  min-height: 10vh;
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    button {
-      padding: 2vw;
-      font-size: 10vw;
-      border-radius: 4vw;
-      min-width: 10vw;
-      min-height: 10vw; } }
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    -webkit-transition: background-color 0.5s;
-    transition: background-color 0.5s; }
-  button:focus {
-    outline: none; }
 
 @keyframes enter {
   from {
@@ -144,7 +75,10 @@ button {
     transform: translateY(5vw); } }
 
 #timer-display {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
   width: 100%;
   font-size: 20vw;
@@ -189,45 +123,13 @@ button {
   -ms-user-select: none;
   user-select: none; }
 
-body {
-  background-color: rgba(0, 0, 0, 0.75);
-  background-blend-mode: multiply;
-  background-image: url("../img/background2.jpg");
-  background-size: cover;
-  background-position: left bottom;
-  color: white;
-  font-family: "Cinzel", "serif"; }
-
-button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  margin: 0.5vh 0;
-  padding: 2vh;
-  border-radius: 4vh;
-  border: 0;
-  font-size: 10vh;
-  min-width: 10vh;
-  min-height: 10vh;
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    button {
-      padding: 2vw;
-      font-size: 10vw;
-      border-radius: 4vw;
-      min-width: 10vw;
-      min-height: 10vw; } }
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    -webkit-transition: background-color 0.5s;
-    transition: background-color 0.5s; }
-  button:focus {
-    outline: none; }
-
 .buttons {
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
   margin: 2vh; }
 
 .control-button {
@@ -239,8 +141,11 @@ button {
   max-height: 14vh; }
 
 .timer-ui {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   height: 100%; }

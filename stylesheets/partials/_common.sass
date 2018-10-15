@@ -8,12 +8,19 @@ $button-active-alpha: 0.25
 $button-inactive-alpha: 0.15
 
 =mouse-over
-    -webkit-transition: background-color 0.5s
-    transition: background-color 0.5s
-  
+  -webkit-transition: background-color 0.5s
+  transition: background-color 0.5s
+
+=flexbox
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+
+=justify-content($value: flex-start)   
+  -webkit-justify-content: $value
+  justify-content: $value
+
 body 
-  background-color: rgba(0,0,0,0.75)
-  background-blend-mode: multiply
   background-image: url("../img/background2.jpg")
   background-size: cover
   background-position: left bottom
