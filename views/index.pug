@@ -9,10 +9,11 @@ html
       h1 Sync Timer
         
       div.index-form
-        div.join-form
-          input#timer-id-field.menu-field(type="text" placeholder="Enter Timer ID")
-          button#join-timer.menu-button(onclick="gotoTimer();") Join Timer
+        form.join-form(action="/timer/" method="post")
+          input#timer-id-field.menu-field(type="text" name="timerId" placeholder="Enter Timer ID")
+          button#join-timer.menu-button(type="submit") Join Timer
         p.or OR
-        button#new-timer.menu-button(onclick="window.location.href='timer/new';") Create Timer
+        form(action="/timer/new" method="get")
+          button#new-timer.menu-button() Create Timer
 
   script(type="text/javascript", src="js/index.js")

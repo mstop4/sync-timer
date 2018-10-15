@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
+const bodyParser = require('body-parser');
 const RoomManager = require('../models/RoomManager');
 
 const server = (port) => {
@@ -12,7 +13,8 @@ const server = (port) => {
     const logger = require('morgan');
     app.use(logger('dev'));
   }
-  
+
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.set('view engine', 'pug');
 
   const rm = new RoomManager();
