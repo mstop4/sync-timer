@@ -1,0 +1,25 @@
+@import partials/common
+
+.login
+  +flexbox
+  flex-direction: column
+  +justify-content(space-evenly) 
+  align-items: center  
+  width: 50vw
+  margin: auto
+  
+input[type=text]
+  width: 100%
+  font-size: 7.5vh
+  +text-placeholder(5)
+
+  @media all and (max-aspect-ratio: 1/1)
+    font-size: 7.5vw
+    margin: 1vw
+
+button
+  width: 50%
+  font-size: 7.5vh
+
+  @media all and (max-aspect-ratio: 1/1)
+    font-size: 7.5vw

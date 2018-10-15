@@ -31,6 +31,42 @@ button {
   button:focus {
     outline: none; }
 
+.menu-field {
+  color: white;
+  font-size: 10vh;
+  width: 75vh;
+  margin: 2vh;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  text-align: center; }
+  .menu-field::-webkit-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-webkit-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field::-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-moz-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-ms-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-ms-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-moz-placeholder {
+        font-size: 5vw; } }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .menu-field {
+      font-size: 10vw;
+      width: 75vw;
+      margin: 1vw; } }
+  .menu-field:focus {
+    outline: none; }
+
 .info-container {
   width: 100%; }
 

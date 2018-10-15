@@ -20,6 +20,24 @@ $button-inactive-alpha: 0.15
   -webkit-justify-content: $value
   justify-content: $value
 
+=text-placeholder($size)
+  &::-webkit-input-placeholder /* Chrome/Opera/Safari */
+    font-size: #{$size}vh
+    @media all and (max-aspect-ratio: 1/1)
+      font-size: #{$size}vw
+  &::-moz-placeholder /* Firefox 19+ */
+    font-size: #{$size}vh
+    @media all and (max-aspect-ratio: 1/1)
+      font-size: #{$size}vw
+  &:-ms-input-placeholder /* IE 10+ */
+    font-size: #{$size}vh
+    @media all and (max-aspect-ratio: 1/1)
+      font-size: #{$size}vw
+  &:-moz-placeholder /* Firefox 18- */
+    font-size: #{$size}vh
+    @media all and (max-aspect-ratio: 1/1)
+      font-size: #{$size}vw
+
 body 
   background-image: url("../img/background2.jpg")
   background-size: cover
@@ -49,6 +67,24 @@ button
   &:hover
     background-color: rgba(255, 255, 255, $button-active-alpha)
     +mouse-over
+
+  &:focus
+    outline: none
+
+.menu-field 
+  color: white
+  font-size: 10vh
+  width: 75vh
+  margin: 2vh
+  background-color: transparent
+  border-width: 0 0 1px 0
+  text-align: center
+  +text-placeholder(5)
+
+  @media all and (max-aspect-ratio: 1/1)
+    font-size: 10vw
+    width: 75vw
+    margin: 1vw
 
   &:focus
     outline: none

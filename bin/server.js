@@ -23,9 +23,11 @@ const server = (port) => {
   const index = require('../routes/index');
   const api = require('../routes/api')(rm);
   const timer = require('../routes/timer')(rm);
+  const admin = require('../routes/admin');
   app.use('/', index);
   app.use('/api', api);
   app.use('/timer', timer);
+  app.use('/admin', admin);
 
   app.use(express.static('public'));
 

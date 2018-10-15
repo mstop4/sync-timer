@@ -67,50 +67,7 @@ button {
   .menu-field:focus {
     outline: none; }
 
-.index-form {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  -webkit-justify-content: space-evenly;
-  justify-content: space-evenly;
-  align-items: center; }
-
-.join-form {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-  align-items: center; }
-
-.or {
-  font-size: 7vh;
-  margin: 7vh; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    .or {
-      font-size: 7vw;
-      margin: svw; } }
-
-.menu-button {
-  font-size: 8vh; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    .menu-button {
-      font-size: 8vw; } }
-
-#new-timer {
-  margin: 0 0 5vh 0; }
-
-h1 {
-  margin: 0;
-  font-size: 12vh;
-  font-family: "Cinzel Decorative", "cursive"; }
-  @media all and (max-aspect-ratio: 1 / 1) {
-    h1 {
-      font-size: 12vw; } }
-
-.index-container {
+.login {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -118,4 +75,40 @@ h1 {
   -webkit-justify-content: space-evenly;
   justify-content: space-evenly;
   align-items: center;
-  height: 100%; }
+  width: 50vw;
+  margin: auto; }
+
+input[type=text] {
+  width: 100%;
+  font-size: 7.5vh; }
+  input[type=text]::-webkit-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      input[type=text]::-webkit-input-placeholder {
+        font-size: 5vw; } }
+  input[type=text]::-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      input[type=text]::-moz-placeholder {
+        font-size: 5vw; } }
+  input[type=text]:-ms-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      input[type=text]:-ms-input-placeholder {
+        font-size: 5vw; } }
+  input[type=text]:-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      input[type=text]:-moz-placeholder {
+        font-size: 5vw; } }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    input[type=text] {
+      font-size: 7.5vw;
+      margin: 1vw; } }
+
+button {
+  width: 50%;
+  font-size: 7.5vh; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      font-size: 7.5vw; } }
