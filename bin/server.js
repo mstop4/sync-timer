@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const passport = require('../middleware/passport');
 const mongoose = require('../middleware/mongoose');
 const RoomManager = require('../models/RoomManager');
@@ -15,10 +16,12 @@ const server = (port) => {
     const logger = require('morgan');
     app.use(logger('dev'));
   }
+  app.use(express.static('public'));
 
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(session({ secret: 'meow' }));
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(bodyParser.urlencoded({ extended: true }));
   app.set('view engine', 'pug');
 
   const rm = new RoomManager();
@@ -32,8 +35,6 @@ const server = (port) => {
   app.use('/api', api);
   app.use('/timer', timer);
   app.use('/admin', admin);
-
-  app.use(express.static('public'));
 
   // Socket
   const socket = require('../middleware/socket')(http, rm);

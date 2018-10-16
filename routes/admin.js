@@ -15,8 +15,12 @@ module.exports = (passport) => {
   );
 
   router.get('/dashboard', (req, res) => {
-    res.render('adminDashboard');
-  })
+    if (req.user) {
+      res.render('adminDashboard', { username: req.user.username });
+    } else {
+      res.redirect('/admin');
+    }
+  });
 
   router.get('/401', (req, res) => {
     res.status(401).render('admin401');
