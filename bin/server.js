@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
+const passport = require('../middleware/passport')(app);
 const RoomManager = require('../models/RoomManager');
 
 const server = (port) => {
