@@ -5,6 +5,7 @@ const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
 const passport = require('../middleware/passport')(app);
+const mongoose = require('../middleware/mongoose');
 const RoomManager = require('../models/RoomManager');
 
 const server = (port) => {
