@@ -15,7 +15,7 @@
     "node": "<9.0.0 >=8.11.2"
   },
   "author": "M.S.T.O.P.",
-  "license": "MIT",
+  "license": "BSD 2-Clause",
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
