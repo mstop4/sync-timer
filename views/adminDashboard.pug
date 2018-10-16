@@ -3,5 +3,9 @@ html
     title Dashboard
     include partials/head
     link(rel="stylesheet", type="text/css", href="/css/timer404.css")
-  body
+  body(onload="getDisplayElements()")
     h1 Dashboard - #{username}
+
+  script(type="text/javascript", src="/socket.io/socket.io.js")
+  script(type="text/javascript", src="/js/adminController.js")
+  script(type="text/javascript", src="/js/adminSocket.js")

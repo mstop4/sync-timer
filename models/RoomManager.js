@@ -8,6 +8,7 @@ const timerGCDelay = 5 * 60 * 1000; // 5 minutes
 
 class RoomManager {
   constructor() {
+    this.adminList = [];
     this.clientList = [];
     this.timerList = {};
     this.timerGCList = {};
@@ -16,6 +17,10 @@ class RoomManager {
     this.deleteTimer = this.deleteTimer.bind(this);
     this.removeClientFromTimer = this.removeClientFromTimer.bind(this);
     this.removeClientFromAnyTimer = this.removeClientFromAnyTimer.bind(this);
+  }
+
+  adminExists(adminId) {
+    return this.adminList.includes(adminId);
   }
 
   clientExists(clientId) {
@@ -147,6 +152,28 @@ class RoomManager {
 
     logExceptInTest(`removeClientFromAnyTimer: Orphaned User ${clientId} found.`);
     return false;
+  }
+
+  addAdmin(adminId) {
+    if (!this.adminExists(adminId)) {
+      this.adminList.push(adminId);
+      logExceptInTest(`Admin ${adminId} added`);
+      return true;
+    } else {
+      logExceptInTest(`addAdmin: Admin ${adminId} already added`);
+      return false;
+    }
+  }
+
+  removeAdmin(adminId) {
+    if (this.adminExists(adminId)) {
+      this.adminList.splice(this.adminList.indexOf(adminId), 1);
+      logExceptInTest(`Admin ${adminId} removed`);
+      return true;
+    } else {
+      logExceptInTest(`removeAdmin: Admin ${adminId} not found`);
+      return false;
+    }
   }
 }
 

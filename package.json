@@ -17,6 +17,7 @@
   "author": "M.S.T.O.P.",
   "license": "BSD 2-Clause",
   "dependencies": {
+    "bcrypt": "^3.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",

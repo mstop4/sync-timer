@@ -2,13 +2,32 @@
 
 const { logExceptInTest } = require('../helpers');
 const TIMERSTATE = require('../helpers/timerStates');
+const adminTickInterval = 1000;
 
 module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
   const rm = roomManager;
-  const broadcastUpdate = (timer) => io.to(timer.id).emit('update timer', timer.time);
 
-  rm.updateCallback = broadcastUpdate.bind(this);
+  const broadcastToClients = (timer) => io.to(timer.id).emit('update timer', timer.time);
+  const broadcastToAdmins = () => {
+    // Sanitize timer objects to remove circular JSON reference
+    const sanitizedTimers = Object.assign({}, rm.timerList);
+
+    for (let timerId in sanitizedTimers) {
+        delete sanitizedTimers[timerId].timerLoop;
+    }
+
+    const data = {
+      adminList: rm.adminList,
+      clientList: rm.clientList,
+      timerList: sanitizedTimers,
+    }
+
+    io.to('admin').emit('update info', data);
+  };
+
+  rm.updateCallback = broadcastToClients.bind(this);
+  setInterval(broadcastToAdmins, adminTickInterval);
 
   // Socket Logic
   io.on('connection', (socket) => {
@@ -16,6 +35,7 @@ module.exports = (http, roomManager) => {
 
     // Events
 
+    // Clients
     socket.on('set up', (timerId) => {
       // A failsafe to make sure a valid Timer Id is obtained at this point.
       // Being passed an invalid timerId (undefined, null) should not happen.
@@ -73,9 +93,26 @@ module.exports = (http, roomManager) => {
       io.to(timerId).emit('timer stopped');
     });
 
+    // Admin
+    socket.on('admin set up', () => {
+      socket.join('admin', () => {
+        rm.addAdmin(socket.id);
+        logExceptInTest(`Admin ${socket.id} registered`);
+        socket.emit('admin done set up');
+      });
+    });
+
+    // Both 
     socket.on('disconnect', () => {
-      logExceptInTest(`User ${socket.id} disconnected`);
-      rm.removeClient(socket.id);
+      if (rm.clientExists(socket.id)) {
+        logExceptInTest(`User ${socket.id} disconnected`);
+        rm.removeClient(socket.id);
+      }
+
+      else if (rm.adminExists(socket.id)) {
+        logExceptInTest(`Admin ${socket.id} disconnected`);
+        rm.removeAdmin(socket.id);
+      }      
     });
   });
 };

@@ -18,6 +18,7 @@ const routes = (rm) => {
     }
 
     const stats = {
+      admins: rm.adminList,
       clients: rm.clientList,
       timers: sanitizedTimers,
     }
