@@ -7,9 +7,9 @@ html
   body
     h1 Sync Timer Admin
         
-    form.login
+    form.login(action="/admin" method="post")
       input.menu-field(type="text" name="username" placeholder="Username")
-      input.menu-field(type="text" name="password" placeholder="Password")
+      input.menu-field(type="password" name="password" placeholder="Password")
       button(type="submit") Submit
 
   script(type="text/javascript", src="js/adminLogin.js")

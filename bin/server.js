@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
-const passport = require('../middleware/passport')(app);
+const passport = require('../middleware/passport');
 const mongoose = require('../middleware/mongoose');
 const RoomManager = require('../models/RoomManager');
 
@@ -16,6 +16,8 @@ const server = (port) => {
     app.use(logger('dev'));
   }
 
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.set('view engine', 'pug');
 
@@ -25,7 +27,7 @@ const server = (port) => {
   const index = require('../routes/index');
   const api = require('../routes/api')(rm);
   const timer = require('../routes/timer')(rm);
-  const admin = require('../routes/admin');
+  const admin = require('../routes/admin')(passport);
   app.use('/', index);
   app.use('/api', api);
   app.use('/timer', timer);
