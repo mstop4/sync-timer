@@ -8,22 +8,29 @@ module.exports = (http, roomManager) => {
   const io = require('socket.io')(http);
   const rm = roomManager;
 
-  const broadcastToClients = (timer) => io.to(timer.id).emit('update timer', timer.time);
+  const broadcastToClients = (timer) => {
+    if (timer.clients.length > 0) {
+      io.to(timer.id).emit('update timer', timer.time);
+    }
+  }
+
   const broadcastToAdmins = () => {
-    // Sanitize timer objects to remove circular JSON reference
-    const sanitizedTimers = Object.assign({}, rm.timerList);
+    if (rm.adminList.length > 0) {
+      // Sanitize timer objects to remove circular JSON reference
+      const sanitizedTimers = Object.assign({}, rm.timerList);
 
-    for (let timerId in sanitizedTimers) {
-        delete sanitizedTimers[timerId].timerLoop;
+      for (let timerId in sanitizedTimers) {
+          delete sanitizedTimers[timerId].timerLoop;
+      }
+
+      const data = {
+        adminList: rm.adminList,
+        clientList: rm.clientList,
+        timerList: sanitizedTimers,
+      }
+
+      io.to('admin').emit('update info', data);
     }
-
-    const data = {
-      adminList: rm.adminList,
-      clientList: rm.clientList,
-      timerList: sanitizedTimers,
-    }
-
-    io.to('admin').emit('update info', data);
   };
 
   rm.updateCallback = broadcastToClients.bind(this);
