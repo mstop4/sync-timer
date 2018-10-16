@@ -45,6 +45,8 @@ Run `npm test` to run all tests.
 * Node 8.12.0
 * Express 4
 * Socke<span>t.io</span> 2
+* MongoDB + Mongoose
+* Passport
 * Pug
 * Sass
 * uniqid
