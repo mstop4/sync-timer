@@ -5,7 +5,11 @@ html
     link(rel="stylesheet", type="text/css", href="/css/timer404.css")
   body(onload="getDisplayElements()")
     h1 Dashboard - #{username}
+    table#timerTable
+      tr
+        th Timer
 
   script(type="text/javascript", src="/socket.io/socket.io.js")
+  script(type="text/javascript", src="/js/helpers/index.js")
   script(type="text/javascript", src="/js/adminController.js")
   script(type="text/javascript", src="/js/adminSocket.js")

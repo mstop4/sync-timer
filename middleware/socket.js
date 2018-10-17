@@ -38,11 +38,11 @@ module.exports = (http, roomManager) => {
 
   // Socket Logic
   io.on('connection', (socket) => {
-    logExceptInTest(`User ${socket.id} connected`);
+    logExceptInTest(`User/Admin ${socket.id} connected`);
 
     // Events
 
-    // Clients
+    // Users
     socket.on('set up', (timerId) => {
       // A failsafe to make sure a valid Timer Id is obtained at this point.
       // Being passed an invalid timerId (undefined, null) should not happen.
