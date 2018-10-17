@@ -1,0 +1,75 @@
+body {
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  background-position: left bottom;
+  color: white;
+  font-family: "Cinzel", "serif"; }
+
+button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0.5vh 0;
+  padding: 2vh;
+  border-radius: 4vh;
+  border: 0;
+  font-size: 10vh;
+  min-width: 10vh;
+  min-height: 10vh;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s; }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    button {
+      padding: 2vw;
+      font-size: 10vw;
+      border-radius: 4vw;
+      min-width: 10vw;
+      min-height: 10vw; } }
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: background-color 0.5s;
+    transition: background-color 0.5s; }
+  button:focus {
+    outline: none; }
+
+.menu-field {
+  color: white;
+  font-size: 10vh;
+  width: 75vh;
+  margin: 2vh;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  text-align: center; }
+  .menu-field::-webkit-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-webkit-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field::-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field::-moz-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-ms-input-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-ms-input-placeholder {
+        font-size: 5vw; } }
+  .menu-field:-moz-placeholder {
+    font-size: 5vh; }
+    @media all and (max-aspect-ratio: 1 / 1) {
+      .menu-field:-moz-placeholder {
+        font-size: 5vw; } }
+  @media all and (max-aspect-ratio: 1 / 1) {
+    .menu-field {
+      font-size: 10vw;
+      width: 75vw;
+      margin: 1vw; } }
+  .menu-field:focus {
+    outline: none; }
+
+th {
+  width: 30vw;
+  text-align: center; }
+
+td {
+  text-align: center; }

@@ -14,14 +14,17 @@ module.exports = (http, roomManager) => {
     }
   }
 
-  const broadcastToAdmins = () => {
+  let broadcastToAdmins = () => {
     if (rm.adminList.length > 0) {
       // Sanitize timer objects to remove circular JSON reference
-      const sanitizedTimers = Object.assign({}, rm.timerList);
-
-      for (let timerId in sanitizedTimers) {
-          delete sanitizedTimers[timerId].timerLoop;
-      }
+      const sanitizedTimers = JSON.parse(
+        JSON.stringify(rm.timerList, (key, value) => {
+          if (key === 'timerLoop') {
+            return undefined;
+          } else {
+            return value;
+          }
+        }));
 
       const data = {
         adminList: rm.adminList,
@@ -31,10 +34,11 @@ module.exports = (http, roomManager) => {
 
       io.to('admin').emit('update info', data);
     }
-  };
+  }
 
   rm.updateCallback = broadcastToClients.bind(this);
-  setInterval(broadcastToAdmins, adminTickInterval);
+  broadcastToAdmins = broadcastToAdmins.bind(this);
+  const adminLoop = setInterval(broadcastToAdmins, adminTickInterval);
 
   // Socket Logic
   io.on('connection', (socket) => {
@@ -101,6 +105,7 @@ module.exports = (http, roomManager) => {
     });
 
     // Admin
+    
     socket.on('admin set up', () => {
       socket.join('admin', () => {
         rm.addAdmin(socket.id);

@@ -35,7 +35,7 @@ class Timer {
       this.elapsedTime += Date.now() - this.startTime;
       this.timerRunning = TIMERSTATE.SUSPENDED;
 
-      if (this.timerLoop !== undefined && this.timerLoop._repeat) {
+      if (this.timerLoop !== undefined) {
         clearInterval(this.timerLoop);
       }
     }
@@ -62,7 +62,7 @@ class Timer {
     this.elapsedTime = 0;
     this.timerRunning = TIMERSTATE.STOPPED;
 
-    if (this.timerLoop !== undefined && this.timerLoop._repeat) {
+    if (this.timerLoop !== undefined) {
       clearInterval(this.timerLoop);
     }
 
