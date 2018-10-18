@@ -1,8 +1,28 @@
 @import partials/common
 
+table
+  //border-collapse: collapse
+  table-layout: fixed
+
+tr:nth-child(odd)
+  background-color: transparent
+
+tr:nth-child(even)
+  background-color: rgba(255, 255, 255, 0.25)
+
 th
-  width: 30vw
+  width: 70vw
+  font-size: 3vw 
   text-align: center
+
+  .time-column
+    width: 7.5vw
 
 td
   text-align: center
+  vertical-align: center
+  font-size: 2vw
+
+ul
+  list-style: none
+  margin: 0

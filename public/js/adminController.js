@@ -15,10 +15,13 @@ var updateDisplay = function (data) {
 
   var timerIdTH = document.createElement('th');
   timerIdTH.innerText = 'ID';
+  timerIdTH.classList.add('narrow-column');
   var timerStateTH = document.createElement('th');
   timerStateTH.innerText = 'State';
+  timerStateTH.classList.add('narrow-column');
   var timerTimeTH = document.createElement('th');
   timerTimeTH.innerText = 'Time';
+  timerTimeTH.classList.add('narrow-column');
   var timerUsersTH = document.createElement('th');
   timerUsersTH.innerText = 'Users';
 
