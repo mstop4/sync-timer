@@ -68,20 +68,25 @@ button {
     outline: none; }
 
 table {
-  table-layout: fixed; }
+  table-layout: fixed;
+  width: 100%; }
 
-tr:nth-child(odd) {
-  background-color: transparent; }
+.narrow-col {
+  width: 15%; }
+
+.full-col {
+  width: auto; }
+
+tr.header {
+  font-size: 3vw;
+  text-align: center;
+  background-color: transparent !important; }
 
 tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.25); }
+  background-color: transparent; }
 
-th {
-  width: 70vw;
-  font-size: 3vw;
-  text-align: center; }
-  th .time-column {
-    width: 7.5vw; }
+tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.25); }
 
 td {
   text-align: center;

@@ -5,9 +5,19 @@ html
     link(rel="stylesheet", type="text/css", href="/css/adminDashboard.css")
   body(onload="getDisplayElements()")
     h1 Dashboard - #{username}
-    table#timerTable
-      tr
-        th Timer
+    table
+      colgroup
+        col.narrow-col
+        col.narrow-col
+        col.narrow-col
+        col.full-col
+      thead
+        tr.header
+          th ID
+          th State
+          th Time
+          th Users
+      tbody
 
   script(type="text/javascript", src="/socket.io/socket.io.js")
   script(type="text/javascript", src="/js/helpers/index.js")

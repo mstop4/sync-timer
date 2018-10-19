@@ -3,20 +3,24 @@
 table
   //border-collapse: collapse
   table-layout: fixed
+  width: 100%
 
-tr:nth-child(odd)
-  background-color: transparent
+.narrow-col
+  width: 15%
 
-tr:nth-child(even)
-  background-color: rgba(255, 255, 255, 0.25)
+.full-col
+  width: auto
 
-th
-  width: 70vw
+tr.header
   font-size: 3vw 
   text-align: center
+  background-color: transparent !important
 
-  .time-column
-    width: 7.5vw
+tr:nth-child(even)
+  background-color: transparent
+
+tr:nth-child(odd)
+  background-color: rgba(255, 255, 255, 0.25)
 
 td
   text-align: center
