@@ -28,7 +28,7 @@
     "chai": "^4.1.2",
     "jsdom": "^12.0.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.18.7",
     "puppeteer": "^1.15.0",
     "socket.io-client": "^2.2.0"
